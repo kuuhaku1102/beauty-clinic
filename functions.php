@@ -163,12 +163,29 @@ function bd_get_clinic_menus($clinic_id) {
 function bd_get_clinic_hours($clinic_id) {
     global $wpdb;
     $t = bd_tables();
-    return $wpdb->get_results($wpdb->prepare("
-        SELECT *
+    
+    // 文字化けを除外し、重複を除去して営業時間を取得
+    $hours = $wpdb->get_results($wpdb->prepare("
+        SELECT day, open_time, close_time, raw
         FROM {$t['hours']}
-        WHERE clinic_id = %d
+        WHERE clinic_id = %s
+        AND day IN ('月','火','水','木','金','土','日')
+        GROUP BY day, open_time, close_time, raw
         ORDER BY FIELD(day,'月','火','水','木','金','土','日')
     ", $clinic_id));
+    
+    // さらに同じ曜日の重複を除去(最初の1件のみ)
+    $unique_hours = [];
+    $seen_days = [];
+    
+    foreach ($hours as $h) {
+        if (!in_array($h->day, $seen_days)) {
+            $unique_hours[] = $h;
+            $seen_days[] = $h->day;
+        }
+    }
+    
+    return $unique_hours;
 }
 
 /**
