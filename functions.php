@@ -503,6 +503,18 @@ function bd_add_rewrite_rules() {
 }
 add_action('init', 'bd_add_rewrite_rules');
 
+/**
+ * テーマ有効化時にリライトルールをフラッシュ
+ */
+function bd_flush_rewrite_rules() {
+    bd_add_rewrite_rules();
+    flush_rewrite_rules();
+}
+register_activation_hook(__FILE__, 'bd_flush_rewrite_rules');
+
+// 管理画面でパーマリンク設定を保存した際にもフラッシュ
+add_action('after_switch_theme', 'bd_flush_rewrite_rules');
+
 function bd_add_query_vars($vars) {
     $vars[] = 'clinic_id';
     return $vars;
