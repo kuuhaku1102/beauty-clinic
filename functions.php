@@ -522,6 +522,25 @@ function bd_add_query_vars($vars) {
 add_filter('query_vars', 'bd_add_query_vars');
 
 /**
+ * clinic_idパラメータがある場合、single.phpを強制的に読み込む
+ */
+function bd_template_redirect() {
+    $clinic_id = get_query_var('clinic_id');
+    if ($clinic_id) {
+        // WordPressにこれが見つかったことを伝える
+        global $wp_query;
+        $wp_query->is_404 = false;
+        $wp_query->is_singular = true;
+        status_header(200);
+        
+        // single.phpを読み込む
+        include(get_template_directory() . '/single.php');
+        exit;
+    }
+}
+add_action('template_redirect', 'bd_template_redirect');
+
+/**
  * REST API: /wp-json/beauty/v1/clinics, /wp-json/beauty/v1/clinics/<id>
  */
 function bd_register_rest_routes() {
