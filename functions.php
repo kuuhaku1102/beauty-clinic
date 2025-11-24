@@ -234,16 +234,12 @@ function bd_shortcode_clinic_search($atts = []) {
 
     // ベースクエリ
     $where = ["1=1"];
-    $join  = "";
+    $join  = "INNER JOIN {$t['menus']} m ON c.clinic_id = m.clinic_id"; // メニューがあるクリニックのみ
     $params = [];
 
     if ($prefecture !== '') {
         $where[] = "c.prefecture = %s";
         $params[] = $prefecture;
-    }
-
-    if ($keyword !== '' || $min_price > 0 || $max_price > 0) {
-        $join = "LEFT JOIN {$t['menus']} m ON c.clinic_id = m.clinic_id";
     }
 
     if ($keyword !== '') {
