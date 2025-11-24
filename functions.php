@@ -328,7 +328,11 @@ function bd_shortcode_clinic_search($atts = []) {
         <div class="bd-card-thumb">
           <?php if ($img): ?>
             <img src="<?php echo esc_url($img); ?>" alt="<?php echo esc_attr($c->name); ?>">
+          <?php else: ?>
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/no-image-placeholder.png" alt="No Image">
           <?php endif; ?>
+        </div>
+        <div class="bd-card-header">
           <?php if ($c->prefecture): ?>
             <span class="bd-card-pref"><?php echo esc_html($c->prefecture); ?></span>
           <?php endif; ?>

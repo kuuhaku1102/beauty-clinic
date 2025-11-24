@@ -112,11 +112,8 @@ if ($clinic_id) {
                                 <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($clinic->name); ?>">
                             </div>
                         <?php else: ?>
-                            <div class="bd-detail-thumb bd-detail-thumb-placeholder">
-                                <div class="bd-placeholder-content">
-                                    <span class="bd-placeholder-icon">🏥</span>
-                                    <span class="bd-placeholder-text">No Image</span>
-                                </div>
+                            <div class="bd-detail-thumb">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/no-image-placeholder.png" alt="No Image">
                             </div>
                         <?php endif; ?>
                     </div>
