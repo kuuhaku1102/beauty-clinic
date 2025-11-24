@@ -789,3 +789,126 @@ function bd_shortcode_prefecture_list() {
     return ob_get_clean();
 }
 add_shortcode('beauty_prefecture_list', 'bd_shortcode_prefecture_list');
+
+/**
+ * カスタム投稿タイプ: おすすめクリニック
+ */
+function bd_register_featured_clinic_post_type() {
+    $labels = [
+        'name' => 'おすすめクリニック',
+        'singular_name' => 'おすすめクリニック',
+        'add_new' => '新規追加',
+        'add_new_item' => '新しいおすすめクリニックを追加',
+        'edit_item' => 'おすすめクリニックを編集',
+        'new_item' => '新しいおすすめクリニック',
+        'view_item' => 'おすすめクリニックを表示',
+        'search_items' => 'おすすめクリニックを検索',
+        'not_found' => 'おすすめクリニックが見つかりませんでした',
+        'not_found_in_trash' => 'ゴミ箱におすすめクリニックはありません',
+        'menu_name' => 'おすすめクリニック'
+    ];
+
+    $args = [
+        'labels' => $labels,
+        'public' => true,
+        'has_archive' => false,
+        'publicly_queryable' => false,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_icon' => 'dashicons-star-filled',
+        'menu_position' => 5,
+        'supports' => ['title', 'editor', 'thumbnail'],
+        'rewrite' => false
+    ];
+
+    register_post_type('featured_clinic', $args);
+}
+add_action('init', 'bd_register_featured_clinic_post_type');
+
+/**
+ * おすすめクリニックのカスタムフィールド
+ */
+function bd_add_featured_clinic_meta_boxes() {
+    add_meta_box(
+        'bd_featured_clinic_details',
+        'クリニック詳細情報',
+        'bd_featured_clinic_meta_box_callback',
+        'featured_clinic',
+        'normal',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'bd_add_featured_clinic_meta_boxes');
+
+function bd_featured_clinic_meta_box_callback($post) {
+    wp_nonce_field('bd_save_featured_clinic_meta', 'bd_featured_clinic_nonce');
+    
+    $affiliate_url = get_post_meta($post->ID, '_bd_affiliate_url', true);
+    $display_order = get_post_meta($post->ID, '_bd_display_order', true);
+    $category = get_post_meta($post->ID, '_bd_category', true);
+    ?>
+    <table class="form-table">
+        <tr>
+            <th><label for="bd_affiliate_url">アフィリエイトリンク</label></th>
+            <td>
+                <input type="url" id="bd_affiliate_url" name="bd_affiliate_url" 
+                       value="<?php echo esc_attr($affiliate_url); ?>" 
+                       class="large-text" placeholder="https://example.com/affiliate">
+                <p class="description">クリック時に遷移するアフィリエイトリンクを入力してください</p>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="bd_category">カテゴリー</label></th>
+            <td>
+                <select id="bd_category" name="bd_category">
+                    <option value="">選択してください</option>
+                    <option value="脱毛" <?php selected($category, '脱毛'); ?>>脱毛</option>
+                    <option value="二重" <?php selected($category, '二重'); ?>>二重</option>
+                    <option value="美肌" <?php selected($category, '美肌'); ?>>美肌</option>
+                    <option value="痩身" <?php selected($category, '痩身'); ?>>痩身</option>
+                    <option value="その他" <?php selected($category, 'その他'); ?>>その他</option>
+                </select>
+                <p class="description">クリニックのカテゴリーを選択してください</p>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="bd_display_order">表示順序</label></th>
+            <td>
+                <input type="number" id="bd_display_order" name="bd_display_order" 
+                       value="<?php echo esc_attr($display_order ?: 0); ?>" 
+                       min="0" step="1">
+                <p class="description">数字が小さいほど先に表示されます（0が最優先）</p>
+            </td>
+        </tr>
+    </table>
+    <p><strong>アイキャッチ画像:</strong> 右側の「アイキャッチ画像を設定」から画像をアップロードしてください。複数の画像を表示したい場合は、本文エディタに画像を挿入してください。</p>
+    <?php
+}
+
+function bd_save_featured_clinic_meta($post_id) {
+    if (!isset($_POST['bd_featured_clinic_nonce']) || 
+        !wp_verify_nonce($_POST['bd_featured_clinic_nonce'], 'bd_save_featured_clinic_meta')) {
+        return;
+    }
+
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+
+    if (isset($_POST['bd_affiliate_url'])) {
+        update_post_meta($post_id, '_bd_affiliate_url', esc_url_raw($_POST['bd_affiliate_url']));
+    }
+
+    if (isset($_POST['bd_category'])) {
+        update_post_meta($post_id, '_bd_category', sanitize_text_field($_POST['bd_category']));
+    }
+
+    if (isset($_POST['bd_display_order'])) {
+        update_post_meta($post_id, '_bd_display_order', intval($_POST['bd_display_order']));
+    }
+}
+add_action('save_post_featured_clinic', 'bd_save_featured_clinic_meta');
