@@ -609,3 +609,507 @@ a:hover {
     background: #fce4ec;
     color: #c2185b;
 }
+
+
+/* Clinic Detail Page */
+.bd-clinic-detail-page {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.bd-breadcrumb {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 24px;
+    padding: 12px 0;
+}
+
+.bd-breadcrumb a {
+    color: #c2185b;
+}
+
+.bd-breadcrumb-separator {
+    margin: 0 8px;
+    color: #999;
+}
+
+.bd-breadcrumb-current {
+    color: #333;
+}
+
+.bd-clinic-detail {
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.04);
+}
+
+.bd-clinic-header {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 32px;
+    padding: 32px;
+    background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 100%);
+}
+
+.bd-clinic-header-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.bd-clinic-name {
+    font-size: 32px;
+    font-weight: 700;
+    color: #c2185b;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.bd-clinic-rating-area {
+    margin: 8px 0;
+}
+
+.bd-rating-display {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bd-rating-stars {
+    font-size: 20px;
+    color: #ff9800;
+    letter-spacing: 2px;
+}
+
+.bd-rating-number {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ff9800;
+}
+
+.bd-reviews-count {
+    font-size: 13px;
+    color: #666;
+}
+
+.bd-clinic-location {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.bd-location-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #555;
+}
+
+.bd-icon {
+    font-size: 16px;
+}
+
+.bd-clinic-address,
+.bd-clinic-phone {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.bd-clinic-phone a {
+    color: #c2185b;
+    font-weight: 600;
+}
+
+.bd-clinic-actions {
+    margin-top: 16px;
+}
+
+.bd-clinic-header-image {
+    display: flex;
+    align-items: center;
+}
+
+.bd-detail-thumb {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f5f5f5;
+    aspect-ratio: 4/3;
+}
+
+.bd-detail-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bd-detail-thumb-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+}
+
+.bd-placeholder-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.bd-placeholder-icon {
+    font-size: 48px;
+    opacity: 0.3;
+}
+
+.bd-placeholder-text {
+    font-size: 14px;
+    color: #999;
+}
+
+.bd-detail-section {
+    padding: 32px;
+    border-bottom: 1px solid #f1e4f2;
+}
+
+.bd-detail-section:last-of-type {
+    border-bottom: none;
+}
+
+.bd-section-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bd-section-icon {
+    font-size: 24px;
+}
+
+.bd-hours-table {
+    display: grid;
+    gap: 1px;
+    background: #f1e4f2;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.bd-hours-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    background: #fff;
+}
+
+.bd-hours-day {
+    padding: 12px 16px;
+    font-weight: 600;
+    color: #c2185b;
+    background: #fce4ec;
+}
+
+.bd-hours-time {
+    padding: 12px 16px;
+    color: #555;
+}
+
+.bd-menu-category {
+    margin-bottom: 32px;
+}
+
+.bd-menu-category:last-child {
+    margin-bottom: 0;
+}
+
+.bd-menu-category-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #c2185b;
+    margin: 0 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #f1e4f2;
+}
+
+.bd-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.bd-menu-item {
+    background: #faf7fb;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.bd-menu-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.bd-menu-item-image {
+    position: relative;
+    width: 100%;
+    padding-top: 60%;
+    background: #f5f5f5;
+    overflow: hidden;
+}
+
+.bd-menu-item-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bd-menu-pickup-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 4px 12px;
+    background: linear-gradient(135deg, #f48fb1, #ce93d8);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 999px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.bd-menu-item-content {
+    padding: 16px;
+}
+
+.bd-menu-item-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 8px;
+    line-height: 1.4;
+}
+
+.bd-menu-item-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #c2185b;
+}
+
+.bd-access-info {
+    background: #faf7fb;
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.bd-access-info p {
+    margin: 8px 0;
+}
+
+.bd-detail-cta {
+    padding: 40px 32px;
+    background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+    text-align: center;
+}
+
+.bd-cta-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.bd-cta-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #c2185b;
+    margin: 0 0 12px;
+}
+
+.bd-cta-text {
+    font-size: 14px;
+    color: #666;
+    margin: 0 0 24px;
+}
+
+.bd-cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.bd-btn-large {
+    padding: 12px 32px;
+    font-size: 15px;
+}
+
+.bd-btn-primary {
+    background: linear-gradient(135deg, #f48fb1, #ce93d8);
+    color: #fff;
+}
+
+.bd-btn-secondary {
+    background: #fff;
+    color: #c2185b;
+    border: 2px solid #c2185b;
+}
+
+.bd-btn-secondary:hover {
+    background: #c2185b;
+    color: #fff;
+}
+
+.bd-back-to-list {
+    padding: 24px 32px;
+    text-align: center;
+    border-top: 1px solid #f1e4f2;
+}
+
+.bd-back-link {
+    font-size: 14px;
+    color: #c2185b;
+    font-weight: 600;
+}
+
+.bd-error-message {
+    padding: 48px 24px;
+    text-align: center;
+    background: #fff;
+    border-radius: 18px;
+    margin: 24px;
+}
+
+/* Single Post (通常の投稿詳細) */
+.bd-single-post {
+    background: #fff;
+    border-radius: 18px;
+    padding: 32px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.04);
+}
+
+.post-header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #f1e4f2;
+}
+
+.post-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 12px;
+}
+
+.post-meta {
+    font-size: 13px;
+    color: #999;
+    display: flex;
+    gap: 12px;
+}
+
+.post-category {
+    background: #fce4ec;
+    color: #c2185b;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+}
+
+.post-thumbnail {
+    margin: 24px 0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.post-thumbnail img {
+    width: 100%;
+    height: auto;
+}
+
+.post-content {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #333;
+}
+
+.post-content h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 32px 0 16px;
+    color: #c2185b;
+}
+
+.post-content h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 24px 0 12px;
+    color: #333;
+}
+
+.post-content p {
+    margin: 16px 0;
+}
+
+.post-content ul,
+.post-content ol {
+    margin: 16px 0;
+    padding-left: 24px;
+}
+
+.post-content li {
+    margin: 8px 0;
+}
+
+.page-links {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #f1e4f2;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .bd-clinic-header {
+        grid-template-columns: 1fr;
+        padding: 24px;
+    }
+    
+    .bd-clinic-header-image {
+        order: -1;
+    }
+    
+    .bd-clinic-name {
+        font-size: 24px;
+    }
+    
+    .bd-detail-section {
+        padding: 24px;
+    }
+    
+    .bd-section-title {
+        font-size: 18px;
+    }
+    
+    .bd-menu-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .bd-hours-row {
+        grid-template-columns: 80px 1fr;
+    }
+    
+    .bd-cta-buttons {
+        flex-direction: column;
+    }
+    
+    .bd-btn-large {
+        width: 100%;
+    }
+}
