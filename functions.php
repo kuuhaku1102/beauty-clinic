@@ -666,3 +666,126 @@ function bd_rest_get_clinic(WP_REST_Request $request) {
     ];
     return rest_ensure_response($data);
 }
+
+/**
+ * 施術別検索ボタンセクション
+ */
+function bd_shortcode_treatment_categories() {
+    $categories = [
+        '目元・二重' => [
+            '二重埋没', '二重切開', '眼瞼下垂', '目尻切開', '涙袋形成', 'ROOF切除'
+        ],
+        '小顔・輪郭' => [
+            '顎骨切り・オトガイ形成', '前顎形成', 'ボトックス注射(顎)', 'エラボトックス注射(小顔)', 
+            'フェイスリフト・切開リフト', '糸リフト(スレッドリフト)', '小鼻縮小', '顎骨切り・骨切り術',
+            'ルフォー骨切り術(上顎骨切り術)', 'SSRO・下顎枝矢状分割法(下顎骨切り術)',
+            '上下顎骨切り術(両顎手術)ルフォー+SSRO', '顎修正(シリコンプロテーゼ)', 'ペリカン手術(顎下脂肪除去)',
+            'Vライン形成(輪郭注点)', '輪郭3点', '輪郭4点', '顎プロテーゼ挿入', '頬ヒアルロン酸注射'
+        ],
+        '鼻' => [
+            '鼻尖形成', '小鼻縮小', '鼻中隔延長', '鼻プロテーゼ', 'ヒアルロン酸注射(鼻)'
+        ],
+        '注入・注射' => [
+            'ボトックス', 'ヒアルロン酸', 'ジュベルック', 'スネコス', 'プラセンタ注射', 
+            '白玉点滴', 'リジュラン', 'ベビーコラーゲン'
+        ],
+        'レーザー・光治療' => [
+            'ピコレーザー', 'ピコトーニング', 'ピコフラクショナル', 'シミ取りレーザー',
+            'フォトフェイシャル', 'ライムライト', 'レーザートーニング'
+        ],
+        '美肌治療' => [
+            'ダーマペン', 'ケミカルピーリング', 'ポテンツァ', 'ハイドラフェイシャル',
+            'ヴェルベットスキン', 'ウーバーピール'
+        ],
+        'リフトアップ' => [
+            'HIFU(ハイフ)', '糸リフト', 'ウルトラセルQ+', 'ウルセラ', 'サーマクール'
+        ],
+        '医療脱毛' => [
+            '全身脱毛', 'VIO脱毛', '顔脱毛', 'ワキ脱毛', '腕脱毛', '脚脱毛', 'メンズ脱毛'
+        ],
+        '痩身・ボディ' => [
+            '脂肪吸引', 'クールスカルプティング', '脂肪溶解注射', 'カベリン', 'BNLS', 
+            'ボトックス(ふくらはぎ)', 'ボトックス(肩)'
+        ]
+    ];
+
+    ob_start();
+    ?>
+    <div class="bd-treatment-section">
+        <?php foreach ($categories as $category_name => $treatments): ?>
+            <div class="bd-treatment-category">
+                <h3 class="bd-treatment-category-title">
+                    <span class="bd-category-icon">💉</span>
+                    <?php echo esc_html($category_name); ?>
+                </h3>
+                <div class="bd-treatment-buttons">
+                    <?php foreach ($treatments as $treatment): ?>
+                        <a href="<?php echo esc_url(home_url('/?bd_kw=' . urlencode($treatment))); ?>" 
+                           class="bd-treatment-btn">
+                            <?php echo esc_html($treatment); ?>
+                        </a>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('beauty_treatment_categories', 'bd_shortcode_treatment_categories');
+
+/**
+ * 都道府県別一覧リンク
+ */
+function bd_shortcode_prefecture_list() {
+    global $wpdb;
+    $t = bd_tables();
+    
+    // 都道府県リストを取得
+    $prefectures = $wpdb->get_col("
+        SELECT DISTINCT prefecture 
+        FROM {$t['clinics']} 
+        WHERE prefecture <> '' 
+        ORDER BY prefecture ASC
+    ");
+    
+    // 地方別にグループ化
+    $regions = [
+        '北海道・東北' => ['北海道', '青森県', '岩手県', '宮城県', '秋田県', '山形県', '福島県'],
+        '関東' => ['東京都', '神奈川県', '千葉県', '埼玉県', '茨城県', '栃木県', '群馬県'],
+        '中部' => ['新潟県', '富山県', '石川県', '福井県', '山梨県', '長野県', '岐阜県', '静岡県', '愛知県'],
+        '関西' => ['三重県', '滋賀県', '京都府', '大阪府', '兵庫県', '奈良県', '和歌山県'],
+        '中国' => ['鳥取県', '島根県', '岡山県', '広島県', '山口県'],
+        '四国' => ['徳島県', '香川県', '愛媛県', '高知県'],
+        '九州・沖縄' => ['福岡県', '佐賀県', '長崎県', '熊本県', '大分県', '宮崎県', '鹿児島県', '沖縄県']
+    ];
+    
+    ob_start();
+    ?>
+    <div class="bd-prefecture-list">
+        <h2 class="bd-section-title">
+            <span class="bd-section-icon">📍</span>
+            地域から探す
+        </h2>
+        <div class="bd-regions">
+            <?php foreach ($regions as $region_name => $region_prefs): ?>
+                <div class="bd-region">
+                    <h3 class="bd-region-title"><?php echo esc_html($region_name); ?></h3>
+                    <div class="bd-prefecture-links">
+                        <?php foreach ($region_prefs as $pref): ?>
+                            <?php if (in_array($pref, $prefectures)): ?>
+                                <a href="<?php echo esc_url(home_url('/?bd_pref=' . urlencode($pref))); ?>" 
+                                   class="bd-prefecture-link">
+                                    <?php echo esc_html($pref); ?>
+                                </a>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('beauty_prefecture_list', 'bd_shortcode_prefecture_list');

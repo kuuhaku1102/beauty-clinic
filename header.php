@@ -10,8 +10,8 @@
 <header class="bd-header">
   <div class="bd-header-inner">
     <div>
-      <div class="bd-logo">Beauty Directory</div>
-      <div class="bd-tagline">美容クリニック・施術メニュー検索</div>
+      <div class="bd-logo">美容クリニックラボ</div>
+      <div class="bd-tagline">Beauty Clinic Lab</div>
     </div>
     <nav>
       <a href="<?php echo esc_url(home_url('/')); ?>">ホーム</a>

@@ -1,10 +1,10 @@
 /*
-Theme Name: Beauty Directory
-Theme URI: https://example.com/
-Description: 美容クリニックのDB(clinics / menus / hours)を表示するためのディレクトリテーマ
+Theme Name: 美容クリニックラボ (Beauty Clinic Lab)
+Theme URI: https://beauty-clinic-lab.com/
+Description: 美容クリニックの情報を探せるディレクトリーサイト
 Version: 1.0.0
-Author: InfinityDesign + ChatGPT
-Text Domain: beauty-directory
+Author: Beauty Clinic Lab Team
+Text Domain: beauty-clinic-lab
 */
 
 body {
@@ -1138,5 +1138,156 @@ a:hover {
     
     .bd-btn-large {
         width: 100%;
+    }
+}
+
+/* Treatment Categories Section */
+.bd-treatment-categories {
+    margin-top: 48px;
+}
+
+.bd-treatment-section {
+    display: grid;
+    gap: 32px;
+}
+
+.bd-treatment-category {
+    background: #fff;
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.03);
+}
+
+.bd-treatment-category-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #c2185b;
+    margin: 0 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bd-category-icon {
+    font-size: 20px;
+}
+
+.bd-treatment-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.bd-treatment-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: #fce4ec;
+    color: #c2185b;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all .2s ease;
+    border: 1px solid transparent;
+}
+
+.bd-treatment-btn:hover {
+    background: #f48fb1;
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(198, 33, 91, 0.2);
+}
+
+@media (max-width: 640px) {
+    .bd-treatment-btn {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}
+
+/* Prefecture List Section */
+.bd-prefecture-section {
+    margin-top: 48px;
+}
+
+.bd-prefecture-list {
+    background: #fff;
+    border-radius: 18px;
+    padding: 32px;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.03);
+}
+
+.bd-section-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #c2185b;
+    margin: 0 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bd-section-icon {
+    font-size: 24px;
+}
+
+.bd-regions {
+    display: grid;
+    gap: 24px;
+}
+
+.bd-region {
+    border-bottom: 1px solid #f1e4f2;
+    padding-bottom: 20px;
+}
+
+.bd-region:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.bd-region-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 12px;
+}
+
+.bd-prefecture-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.bd-prefecture-link {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: #faf7fb;
+    color: #666;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all .2s ease;
+    border: 1px solid #f1e4f2;
+}
+
+.bd-prefecture-link:hover {
+    background: #fce4ec;
+    color: #c2185b;
+    border-color: #e68cb6;
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+    .bd-prefecture-list {
+        padding: 24px 16px;
+    }
+    
+    .bd-prefecture-link {
+        font-size: 12px;
+        padding: 5px 12px;
     }
 }

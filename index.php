@@ -13,6 +13,16 @@ get_header();
     </div>
     
     <?php echo do_shortcode('[beauty_clinic_search]'); ?>
+    
+    <!-- 施術別検索ボタンセクション -->
+    <div class="bd-treatment-categories">
+        <?php echo do_shortcode('[beauty_treatment_categories]'); ?>
+    </div>
+    
+    <!-- 都道府県別一覧 -->
+    <div class="bd-prefecture-section">
+        <?php echo do_shortcode('[beauty_prefecture_list]'); ?>
+    </div>
 </div>
 
 <?php get_footer(); ?>
