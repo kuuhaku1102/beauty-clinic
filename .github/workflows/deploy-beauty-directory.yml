@@ -1,0 +1,52 @@
+name: Deploy Beauty Directory Theme to ConoHa WING
+
+on:
+  push:
+    branches: [ main ]        # mainブランチ更新でデプロイ
+  workflow_dispatch:           # 任意デプロイも可能
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 🧾 リポジトリ取得
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 🔐 SSHセットアップ
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p 8022 -H www1012.conoha.ne.jp >> ~/.ssh/known_hosts
+
+      # 🔍 動作確認（SSH接続テスト）
+      - name: Test SSH connection
+        run: |
+          ssh -i ~/.ssh/id_ed25519 -p 8022 c3659606@www1012.conoha.ne.jp "echo '✅ SSH connection successful!' && pwd"
+
+      # 🚀 beauty-directory テーマをサーバーへデプロイ
+      - name: Deploy Beauty Directory Theme files
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
+        with:
+          server: www1012.conoha.ne.jp
+          port: 8022
+          username: c3659606
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+          # ⚠ GitHubリポジトリ内で beauty-directory があるパスに変更
+          local_path: ./beauty-directory/
+
+          # ⚠ ConoHa のドメイン sbpnet.jp × beauty-directory テーマパス
+          remote_path: "public_html/sbpnet.jp/wp-content/themes/beauty-directory/"
+
+          # ✋ SFTPモード
+          sftp_only: true
+
+          # ❌ サーバー上のファイルを消さない（trueにすると上書きのみ）
+          delete_remote_files: false
+
+          # 🚫 除外ファイル
+          rsyncArgs: "--exclude='.git/' --exclude='.github/' --exclude='node_modules/' --exclude='.env' --exclude='.DS_Store'"
