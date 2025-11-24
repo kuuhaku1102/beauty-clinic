@@ -160,6 +160,28 @@ function bd_get_clinic_menus($clinic_id) {
     ", $clinic_id));
 }
 
+/**
+ * 他サイトのURLをフィルタリング(除外)する
+ */
+function bd_filter_external_url($url) {
+    if (empty($url)) {
+        return '';
+    }
+    
+    // 除外するドメインリスト
+    $blocked_domains = [
+        'kireireport.com',
+    ];
+    
+    foreach ($blocked_domains as $domain) {
+        if (strpos($url, $domain) !== false) {
+            return ''; // ブロックされたドメインの場合は空文字列を返す
+        }
+    }
+    
+    return $url;
+}
+
 function bd_get_clinic_hours($clinic_id) {
     global $wpdb;
     $t = bd_tables();
@@ -301,7 +323,7 @@ function bd_shortcode_clinic_search($atts = []) {
 
     <div class="bd-clinic-list">
     <?php foreach ($clinics as $c): 
-        $img = $c->first_image ?: '';
+        $img = bd_filter_external_url($c->first_image ?: '');
         $rating = $c->rating;
         $reviews = $c->reviews_count;
         $detail_url = home_url('/clinic/' . intval($c->clinic_id));
@@ -463,6 +485,7 @@ function bd_shortcode_clinic_detail($atts) {
               WHERE clinic_id = %d AND menu_img <> ''
               ORDER BY id ASC LIMIT 1
           ", $clinic_id));
+          $thumb = bd_filter_external_url($thumb);
           if ($thumb): ?>
             <div class="bd-detail-thumb">
               <img src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($clinic->name); ?>">
@@ -494,9 +517,12 @@ function bd_shortcode_clinic_detail($atts) {
         </ul>
       <?php endif; ?>
 
-      <?php if (!empty($clinic->clinic_url)): ?>
+      <?php 
+      $clinic_url = bd_filter_external_url($clinic->clinic_url);
+      if (!empty($clinic_url)): 
+      ?>
         <p style="margin-top:18px;">
-          <a class="bd-btn" href="<?php echo esc_url($clinic->clinic_url); ?>" target="_blank" rel="noopener">
+          <a class="bd-btn" href="<?php echo esc_url($clinic_url); ?>" target="_blank" rel="noopener">
             公式サイトを見る
           </a>
         </p>

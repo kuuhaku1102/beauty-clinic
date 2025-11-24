@@ -77,9 +77,12 @@ if ($clinic_id) {
                             </div>
                         <?php endif; ?>
 
-                        <?php if (!empty($clinic->clinic_url)): ?>
+                        <?php 
+                        $clinic_url = bd_filter_external_url($clinic->clinic_url);
+                        if (!empty($clinic_url)): 
+                        ?>
                             <div class="bd-clinic-actions">
-                                <a class="bd-btn bd-btn-primary" href="<?php echo esc_url($clinic->clinic_url); ?>" target="_blank" rel="noopener">
+                                <a class="bd-btn bd-btn-primary" href="<?php echo esc_url($clinic_url); ?>" target="_blank" rel="noopener">
                                     公式サイトを見る
                                 </a>
                             </div>
@@ -100,6 +103,9 @@ if ($clinic_id) {
                                 ORDER BY id ASC LIMIT 1
                             ", $clinic_id));
                         }
+                        
+                        // 他サイトの画像を除外
+                        $image_url = bd_filter_external_url($image_url);
                         
                         if ($image_url): ?>
                             <div class="bd-detail-thumb">
@@ -158,11 +164,13 @@ if ($clinic_id) {
                             <div class="bd-menu-category">
                                 <h3 class="bd-menu-category-title"><?php echo esc_html($category); ?></h3>
                                 <div class="bd-menu-grid">
-                                    <?php foreach ($category_menus as $m): ?>
+                                    <?php foreach ($category_menus as $m): 
+                                        $menu_img = bd_filter_external_url($m->menu_img);
+                                    ?>
                                         <div class="bd-menu-item">
-                                            <?php if (!empty($m->menu_img)): ?>
+                                            <?php if (!empty($menu_img)): ?>
                                                 <div class="bd-menu-item-image">
-                                                    <img src="<?php echo esc_url($m->menu_img); ?>" alt="<?php echo esc_attr($m->menu_title); ?>">
+                                                    <img src="<?php echo esc_url($menu_img); ?>" alt="<?php echo esc_attr($m->menu_title); ?>">
                                                     <?php if ($m->pickup_flag): ?>
                                                         <span class="bd-menu-pickup-badge">おすすめ</span>
                                                     <?php endif; ?>
@@ -206,8 +214,11 @@ if ($clinic_id) {
                         <h3 class="bd-cta-title">ご予約・お問い合わせ</h3>
                         <p class="bd-cta-text">詳しい情報やご予約は公式サイトをご確認ください</p>
                         <div class="bd-cta-buttons">
-                            <?php if (!empty($clinic->clinic_url)): ?>
-                                <a class="bd-btn bd-btn-primary bd-btn-large" href="<?php echo esc_url($clinic->clinic_url); ?>" target="_blank" rel="noopener">
+                            <?php 
+                            $clinic_url = bd_filter_external_url($clinic->clinic_url);
+                            if (!empty($clinic_url)): 
+                            ?>
+                                <a class="bd-btn bd-btn-primary bd-btn-large" href="<?php echo esc_url($clinic_url); ?>" target="_blank" rel="noopener">
                                     公式サイトで予約する
                                 </a>
                             <?php endif; ?>
