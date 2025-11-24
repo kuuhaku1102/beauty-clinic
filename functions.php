@@ -5,17 +5,117 @@ if (!defined('ABSPATH')) exit;
  * Beauty Directory Theme Functions
  */
 
+/**
+ * テーマセットアップ
+ */
 function bd_theme_setup() {
+    // タイトルタグサポート
     add_theme_support('title-tag');
+    
+    // アイキャッチ画像サポート
+    add_theme_support('post-thumbnails');
+    set_post_thumbnail_size(800, 600, true);
+    add_image_size('bd-thumb', 400, 300, true);
+    
+    // HTML5サポート
+    add_theme_support('html5', [
+        'search-form',
+        'comment-form',
+        'comment-list',
+        'gallery',
+        'caption',
+    ]);
+    
+    // 自動フィードリンク
+    add_theme_support('automatic-feed-links');
+    
+    // カスタムロゴ
+    add_theme_support('custom-logo', [
+        'height' => 100,
+        'width' => 400,
+        'flex-height' => true,
+        'flex-width' => true,
+    ]);
+    
+    // ナビゲーションメニュー
+    register_nav_menus([
+        'primary' => 'メインメニュー',
+        'footer-menu' => 'フッターメニュー',
+    ]);
 }
 add_action('after_setup_theme', 'bd_theme_setup');
 
+/**
+ * ウィジェットエリア登録
+ */
+function bd_widgets_init() {
+    register_sidebar([
+        'name' => 'サイドバー',
+        'id' => 'sidebar-1',
+        'description' => 'サイドバーウィジェットエリア',
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ]);
+    
+    register_sidebar([
+        'name' => 'フッター1',
+        'id' => 'footer-1',
+        'description' => 'フッターウィジェットエリア1',
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h4 class="widget-title">',
+        'after_title' => '</h4>',
+    ]);
+    
+    register_sidebar([
+        'name' => 'フッター2',
+        'id' => 'footer-2',
+        'description' => 'フッターウィジェットエリア2',
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h4 class="widget-title">',
+        'after_title' => '</h4>',
+    ]);
+    
+    register_sidebar([
+        'name' => 'フッター3',
+        'id' => 'footer-3',
+        'description' => 'フッターウィジェットエリア3',
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h4 class="widget-title">',
+        'after_title' => '</h4>',
+    ]);
+}
+add_action('widgets_init', 'bd_widgets_init');
+
+/**
+ * スタイルとスクリプトの読み込み
+ */
 function bd_enqueue_assets() {
-    wp_enqueue_style('beauty-directory-style', get_stylesheet_uri(), [], '1.0.0');
+    wp_enqueue_style('beauty-directory-style', get_stylesheet_uri(), [], '1.1.0');
 }
 add_action('wp_enqueue_scripts', 'bd_enqueue_assets');
 
-// クリニック投稿タイプ（必要なら後で拡張）
+/**
+ * 抜粋文字数の変更
+ */
+function bd_excerpt_length($length) {
+    return 100;
+}
+add_filter('excerpt_length', 'bd_excerpt_length');
+
+/**
+ * 抜粋の省略記号を変更
+ */
+function bd_excerpt_more($more) {
+    return '...';
+}
+add_filter('excerpt_more', 'bd_excerpt_more');
+
+// クリニック投稿タイプ(必要なら後で拡張)
 function bd_register_clinic_post_type() {
     register_post_type('clinic', [
         'label' => 'クリニック',
@@ -24,6 +124,7 @@ function bd_register_clinic_post_type() {
         'rewrite' => ['slug' => 'clinic'],
         'supports' => ['title', 'editor', 'thumbnail'],
         'show_in_rest' => true,
+        'menu_icon' => 'dashicons-heart',
     ]);
 }
 add_action('init', 'bd_register_clinic_post_type');
@@ -71,17 +172,23 @@ function bd_get_clinic_hours($clinic_id) {
 }
 
 /**
- * 絞り込み付き クリニック一覧ショートコード
+ * 絞り込み付き クリニック一覧ショートコード (ページネーション対応)
  * [beauty_clinic_search]
  */
 function bd_shortcode_clinic_search($atts = []) {
     global $wpdb;
     $t = bd_tables();
 
+    // 検索パラメータ
     $prefecture = isset($_GET['bd_pref']) ? sanitize_text_field($_GET['bd_pref']) : '';
     $keyword    = isset($_GET['bd_kw']) ? sanitize_text_field($_GET['bd_kw']) : '';
     $min_price  = isset($_GET['bd_min']) ? floatval($_GET['bd_min']) : 0;
     $max_price  = isset($_GET['bd_max']) ? floatval($_GET['bd_max']) : 0;
+
+    // ページネーション設定
+    $per_page = 12; // 1ページあたりの表示件数
+    $paged = isset($_GET['paged']) ? max(1, intval($_GET['paged'])) : 1;
+    $offset = ($paged - 1) * $per_page;
 
     // 都道府県リスト
     $prefectures = $wpdb->get_col("SELECT DISTINCT prefecture FROM {$t['clinics']} WHERE prefecture <> '' ORDER BY prefecture ASC");
@@ -115,6 +222,15 @@ function bd_shortcode_clinic_search($atts = []) {
         $params[] = $max_price;
     }
 
+    // 総件数を取得
+    $count_sql = "SELECT COUNT(DISTINCT c.clinic_id)
+        FROM {$t['clinics']} c
+        {$join}
+        WHERE " . implode(' AND ', $where);
+    $total_items = $wpdb->get_var($wpdb->prepare($count_sql, $params));
+    $total_pages = ceil($total_items / $per_page);
+
+    // データ取得 (LIMIT/OFFSET付き)
     $sql = "SELECT c.*, 
         (SELECT menu_img FROM {$t['menus']} mm WHERE mm.clinic_id = c.clinic_id AND mm.menu_img <> '' LIMIT 1) AS first_image,
         (SELECT MIN(price_jpy+0) FROM {$t['menus']} mm2 WHERE mm2.clinic_id = c.clinic_id) AS min_price
@@ -122,8 +238,11 @@ function bd_shortcode_clinic_search($atts = []) {
         {$join}
         WHERE " . implode(' AND ', $where) . "
         GROUP BY c.clinic_id
-        ORDER BY c.prefecture, c.city, c.name";
+        ORDER BY c.prefecture, c.city, c.name
+        LIMIT %d OFFSET %d";
 
+    $params[] = $per_page;
+    $params[] = $offset;
     $prepared = $wpdb->prepare($sql, $params);
     $clinics = $wpdb->get_results($prepared);
 
@@ -143,7 +262,7 @@ function bd_shortcode_clinic_search($atts = []) {
         </label>
 
         <label>メニュー名
-          <input type="text" name="bd_kw" value="<?php echo esc_attr($keyword); ?>" placeholder="例：二重・ボトックス">
+          <input type="text" name="bd_kw" value="<?php echo esc_attr($keyword); ?>" placeholder="例:二重・ボトックス">
         </label>
 
         <label>最低価格
@@ -158,6 +277,10 @@ function bd_shortcode_clinic_search($atts = []) {
         <button type="submit" class="bd-btn">検索する</button>
       </div>
     </form>
+
+    <div class="bd-results-info">
+      <p><?php echo number_format($total_items); ?>件のクリニックが見つかりました (<?php echo $paged; ?> / <?php echo $total_pages; ?>ページ)</p>
+    </div>
 
     <div class="bd-clinic-list">
     <?php foreach ($clinics as $c): 
@@ -220,10 +343,60 @@ function bd_shortcode_clinic_search($atts = []) {
       </article>
     <?php endforeach; ?>
     </div>
+
+    <?php
+    // ページネーション表示
+    if ($total_pages > 1) {
+        echo '<div class="bd-pagination">';
+        echo bd_pagination_links($paged, $total_pages, $_GET);
+        echo '</div>';
+    }
+    ?>
     <?php
     return ob_get_clean();
 }
 add_shortcode('beauty_clinic_search', 'bd_shortcode_clinic_search');
+
+/**
+ * ページネーションリンク生成関数
+ */
+function bd_pagination_links($current_page, $total_pages, $query_params = []) {
+    $output = '';
+    $range = 2; // 現在ページの前後に表示するページ数
+
+    // 検索パラメータを保持
+    $base_params = $query_params;
+    unset($base_params['paged']); // pagedは個別に設定
+
+    // 前へリンク
+    if ($current_page > 1) {
+        $prev_params = array_merge($base_params, ['paged' => $current_page - 1]);
+        $output .= '<a href="?' . http_build_query($prev_params) . '" class="bd-page-link bd-page-prev">« 前へ</a>';
+    }
+
+    // ページ番号リンク
+    for ($i = 1; $i <= $total_pages; $i++) {
+        // 最初、最後、現在ページ周辺のみ表示
+        if ($i == 1 || $i == $total_pages || ($i >= $current_page - $range && $i <= $current_page + $range)) {
+            if ($i == $current_page) {
+                $output .= '<span class="bd-page-link bd-page-current">' . $i . '</span>';
+            } else {
+                $page_params = array_merge($base_params, ['paged' => $i]);
+                $output .= '<a href="?' . http_build_query($page_params) . '" class="bd-page-link">' . $i . '</a>';
+            }
+        } elseif ($i == $current_page - $range - 1 || $i == $current_page + $range + 1) {
+            $output .= '<span class="bd-page-dots">...</span>';
+        }
+    }
+
+    // 次へリンク
+    if ($current_page < $total_pages) {
+        $next_params = array_merge($base_params, ['paged' => $current_page + 1]);
+        $output .= '<a href="?' . http_build_query($next_params) . '" class="bd-page-link bd-page-next">次へ »</a>';
+    }
+
+    return $output;
+}
 
 /**
  * クリニック詳細ショートコード
@@ -260,7 +433,7 @@ function bd_shortcode_clinic_detail($atts) {
               <div>TEL: <?php echo esc_html($clinic->phone); ?></div>
             <?php endif; ?>
             <?php if (!empty($clinic->rating)): ?>
-              <div>評価：★ <?php echo esc_html($clinic->rating); ?> / 口コミ <?php echo esc_html($clinic->reviews_count); ?>件</div>
+              <div>評価:★ <?php echo esc_html($clinic->rating); ?> / 口コミ <?php echo esc_html($clinic->reviews_count); ?>件</div>
             <?php endif; ?>
           </div>
         </div>
@@ -285,7 +458,7 @@ function bd_shortcode_clinic_detail($atts) {
         <h2 class="bd-section-title">営業時間</h2>
         <ul class="bd-hours-list">
           <?php foreach ($hours as $h): ?>
-            <li><?php echo esc_html($h->day . '：' . $h->raw); ?></li>
+            <li><?php echo esc_html($h->day . ':' . $h->raw); ?></li>
           <?php endforeach; ?>
         </ul>
       <?php endif; ?>
