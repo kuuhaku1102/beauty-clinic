@@ -296,8 +296,31 @@ function bd_shortcode_clinic_search($atts = []) {
           </select>
         </label>
 
-        <label>メニュー名
-          <input type="text" name="bd_kw" value="<?php echo esc_attr($keyword); ?>" placeholder="例:二重・ボトックス">
+        <label>施術カテゴリー
+          <select name="bd_kw">
+            <option value="">すべての施術</option>
+            <option value="ボトックス" <?php selected($keyword, 'ボトックス'); ?>>ボトックス</option>
+            <option value="ヒアルロン酸" <?php selected($keyword, 'ヒアルロン酸'); ?>>ヒアルロン酸</option>
+            <option value="ジュベルック" <?php selected($keyword, 'ジュベルック'); ?>>ジュベルック</option>
+            <option value="スネコス" <?php selected($keyword, 'スネコス'); ?>>スネコス</option>
+            <option value="プラセンタ" <?php selected($keyword, 'プラセンタ'); ?>>プラセンタ注射</option>
+            <option value="白玉" <?php selected($keyword, '白玉'); ?>>白玉点滴</option>
+            <option value="ピコ" <?php selected($keyword, 'ピコ'); ?>>ピコレーザー</option>
+            <option value="シミ" <?php selected($keyword, 'シミ'); ?>>シミ取りレーザー</option>
+            <option value="フォトフェイシャル" <?php selected($keyword, 'フォトフェイシャル'); ?>>フォトフェイシャル</option>
+            <option value="ライムライト" <?php selected($keyword, 'ライムライト'); ?>>ライムライト</option>
+            <option value="ダーマペン" <?php selected($keyword, 'ダーマペン'); ?>>ダーマペン</option>
+            <option value="ピーリング" <?php selected($keyword, 'ピーリング'); ?>>ケミカルピーリング</option>
+            <option value="ポテンツァ" <?php selected($keyword, 'ポテンツァ'); ?>>ポテンツァ</option>
+            <option value="脱毛" <?php selected($keyword, '脱毛'); ?>>医療脱毛</option>
+            <option value="二重" <?php selected($keyword, '二重'); ?>>二重整形</option>
+            <option value="埋没" <?php selected($keyword, '埋没'); ?>>埋没法</option>
+            <option value="切開" <?php selected($keyword, '切開'); ?>>切開法</option>
+            <option value="眼瞼下垂" <?php selected($keyword, '眼瞼下垂'); ?>>眼瞼下垂</option>
+            <option value="HIFU" <?php selected($keyword, 'HIFU'); ?>>HIFU(ハイフ)</option>
+            <option value="糸リフト" <?php selected($keyword, '糸リフト'); ?>>糸リフト</option>
+            <option value="脂肪吸引" <?php selected($keyword, '脂肪吸引'); ?>>脂肪吸引</option>
+          </select>
         </label>
 
         <label>最低価格
