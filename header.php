@@ -49,11 +49,12 @@ foreach ($categories as $cat) {
         ?>
         <div class="bd-featured-category-section">
             <div class="bd-featured-clinics-container">
-                <h2 class="bd-featured-category-title">
+                <button class="bd-featured-category-title bd-accordion-toggle" type="button" aria-expanded="false">
                     <span class="bd-category-label"><?php echo esc_html($cat); ?></span>
                     のおすすめクリニック
-                </h2>
-                <div class="bd-featured-clinics-slider">
+                    <span class="bd-accordion-icon">▼</span>
+                </button>
+                <div class="bd-featured-clinics-slider bd-accordion-content">
                     <?php while ($featured_clinics->have_posts()): $featured_clinics->the_post();
                         $affiliate_url = get_post_meta(get_the_ID(), '_bd_affiliate_url', true);
                         $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'full');

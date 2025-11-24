@@ -96,6 +96,7 @@ add_action('widgets_init', 'bd_widgets_init');
  */
 function bd_enqueue_assets() {
     wp_enqueue_style('beauty-directory-style', get_stylesheet_uri(), [], '1.1.0');
+    wp_enqueue_script('bd-accordion', get_template_directory_uri() . '/assets/js/accordion.js', [], '1.0.0', true);
 }
 add_action('wp_enqueue_scripts', 'bd_enqueue_assets');
 
