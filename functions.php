@@ -866,6 +866,7 @@ function bd_featured_clinic_meta_box_callback($post) {
                     <option value="二重" <?php selected($category, '二重'); ?>>二重</option>
                     <option value="美肌" <?php selected($category, '美肌'); ?>>美肌</option>
                     <option value="痩身" <?php selected($category, '痩身'); ?>>痩身</option>
+                    <option value="AGA" <?php selected($category, 'AGA'); ?>>AGA</option>
                     <option value="その他" <?php selected($category, 'その他'); ?>>その他</option>
                 </select>
                 <p class="description">クリニックのカテゴリーを選択してください</p>

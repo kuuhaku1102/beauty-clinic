@@ -1296,7 +1296,35 @@ a:hover {
 .bd-featured-clinics-wrapper {
     background: #fff;
     border-bottom: 1px solid #f1e4f2;
-    padding: 16px 0;
+    padding: 0;
+}
+
+.bd-featured-category-section {
+    border-bottom: 1px solid #f1e4f2;
+    padding: 20px 0;
+}
+
+.bd-featured-category-section:last-child {
+    border-bottom: none;
+}
+
+.bd-featured-category-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 12px;
+    padding: 0 16px;
+}
+
+.bd-category-label {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #f48fb1, #ce93d8);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    margin-right: 4px;
 }
 
 .bd-featured-clinics-container {

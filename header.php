@@ -20,53 +20,77 @@
 </header>
 
 <?php
-// おすすめクリニックを表示
-$featured_clinics = new WP_Query([
-    'post_type' => 'featured_clinic',
-    'posts_per_page' => -1,
-    'post_status' => 'publish',
-    'meta_key' => '_bd_display_order',
-    'orderby' => 'meta_value_num',
-    'order' => 'ASC'
-]);
+// おすすめクリニックをカテゴリー別に表示
+$categories = ['脱毛', '二重', '美肌', '痩身', 'AGA', 'その他'];
+$has_featured = false;
 
-if ($featured_clinics->have_posts()): ?>
-<div class="bd-featured-clinics-wrapper">
-    <div class="bd-featured-clinics-container">
-        <div class="bd-featured-clinics-slider">
-            <?php while ($featured_clinics->have_posts()): $featured_clinics->the_post();
-                $affiliate_url = get_post_meta(get_the_ID(), '_bd_affiliate_url', true);
-                $category = get_post_meta(get_the_ID(), '_bd_category', true);
-                $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
-                ?>
-                <div class="bd-featured-clinic-item">
-                    <?php if ($affiliate_url): ?>
-                        <a href="<?php echo esc_url($affiliate_url); ?>" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           class="bd-featured-clinic-link">
-                    <?php endif; ?>
-                    
-                    <?php if ($thumbnail_url): ?>
-                        <img src="<?php echo esc_url($thumbnail_url); ?>" 
-                             alt="<?php echo esc_attr(get_the_title()); ?>">
-                    <?php endif; ?>
-                    
-                    <div class="bd-featured-clinic-info">
-                        <?php if ($category): ?>
-                            <span class="bd-featured-category"><?php echo esc_html($category); ?></span>
-                        <?php endif; ?>
-                        <h3 class="bd-featured-clinic-title"><?php the_title(); ?></h3>
-                    </div>
-                    
-                    <?php if ($affiliate_url): ?>
-                        </a>
-                    <?php endif; ?>
+foreach ($categories as $cat) {
+    $featured_clinics = new WP_Query([
+        'post_type' => 'featured_clinic',
+        'posts_per_page' => -1,
+        'post_status' => 'publish',
+        'meta_query' => [
+            [
+                'key' => '_bd_category',
+                'value' => $cat,
+                'compare' => '='
+            ]
+        ],
+        'meta_key' => '_bd_display_order',
+        'orderby' => 'meta_value_num',
+        'order' => 'ASC'
+    ]);
+    
+    if ($featured_clinics->have_posts()):
+        if (!$has_featured) {
+            echo '<div class="bd-featured-clinics-wrapper">';
+            $has_featured = true;
+        }
+        ?>
+        <div class="bd-featured-category-section">
+            <div class="bd-featured-clinics-container">
+                <h2 class="bd-featured-category-title">
+                    <span class="bd-category-label"><?php echo esc_html($cat); ?></span>
+                    のおすすめクリニック
+                </h2>
+                <div class="bd-featured-clinics-slider">
+                    <?php while ($featured_clinics->have_posts()): $featured_clinics->the_post();
+                        $affiliate_url = get_post_meta(get_the_ID(), '_bd_affiliate_url', true);
+                        $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+                        ?>
+                        <div class="bd-featured-clinic-item">
+                            <?php if ($affiliate_url): ?>
+                                <a href="<?php echo esc_url($affiliate_url); ?>" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer"
+                                   class="bd-featured-clinic-link">
+                            <?php endif; ?>
+                            
+                            <?php if ($thumbnail_url): ?>
+                                <img src="<?php echo esc_url($thumbnail_url); ?>" 
+                                     alt="<?php echo esc_attr(get_the_title()); ?>">
+                            <?php endif; ?>
+                            
+                            <div class="bd-featured-clinic-info">
+                                <h3 class="bd-featured-clinic-title"><?php the_title(); ?></h3>
+                            </div>
+                            
+                            <?php if ($affiliate_url): ?>
+                                </a>
+                            <?php endif; ?>
+                        </div>
+                    <?php endwhile; ?>
                 </div>
-            <?php endwhile; ?>
+            </div>
         </div>
-    </div>
-</div>
-<?php endif; wp_reset_postdata(); ?>
+        <?php
+        wp_reset_postdata();
+    endif;
+}
+
+if ($has_featured) {
+    echo '</div>';
+}
+?>
 
 <div class="bd-container">
