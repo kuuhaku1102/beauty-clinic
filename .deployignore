@@ -1,0 +1,38 @@
+# デプロイ除外ファイル・ディレクトリ
+# サーバーにアップロードしないファイルのリスト
+
+# バージョン管理
+.git/
+.github/
+.gitignore
+
+# 開発環境
+node_modules/
+.env
+.DS_Store
+
+# 自動ブログ投稿システム関連
+scripts/
+data/
+seo_keywords.json
+AUTO_BLOG_GUIDE.md
+
+# Pythonファイル
+*.py
+*.pyc
+__pycache__/
+
+# ドキュメント
+*.md
+README.md
+PLUGIN_README.md
+
+# JSONファイル（設定ファイル）
+*.json
+package.json
+package-lock.json
+
+# その他
+.vscode/
+.idea/
+*.log
