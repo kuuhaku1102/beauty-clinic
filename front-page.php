@@ -56,7 +56,7 @@ get_header();
             <?php
             $latest_posts = new WP_Query([
                 'post_type' => 'post',
-                'posts_per_page' => 3,
+                'posts_per_page' => 5,
                 'post_status' => 'publish',
                 'orderby' => 'date',
                 'order' => 'DESC'
@@ -64,48 +64,65 @@ get_header();
             
             if ($latest_posts->have_posts()):
             ?>
-                <div class="bd-latest-posts-grid">
-                    <?php while ($latest_posts->have_posts()): $latest_posts->the_post(); ?>
-                        <article class="bd-post-card">
-                            <a href="<?php the_permalink(); ?>" class="bd-post-card-link">
-                                <?php if (has_post_thumbnail()): ?>
-                                    <div class="bd-post-thumb">
-                                        <?php the_post_thumbnail('medium'); ?>
+                <div class="bd-latest-posts-slider-wrapper">
+                    <button class="bd-slider-nav bd-slider-prev" aria-label="前へ">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    
+                    <div class="bd-latest-posts-slider">
+                        <?php while ($latest_posts->have_posts()): $latest_posts->the_post(); ?>
+                            <article class="bd-post-slide-card">
+                                <a href="<?php the_permalink(); ?>" class="bd-post-slide-link">
+                                    <div class="bd-post-slide-content">
+                                        <div class="bd-post-meta">
+                                            <time class="bd-post-date" datetime="<?php echo get_the_date('c'); ?>">
+                                                <?php echo get_the_date('Y.m.d'); ?>
+                                            </time>
+                                            <?php
+                                            $categories = get_the_category();
+                                            if ($categories):
+                                                $category = $categories[0];
+                                            ?>
+                                                <span class="bd-post-category"><?php echo esc_html($category->name); ?></span>
+                                            <?php endif; ?>
+                                        </div>
+                                        
+                                        <h3 class="bd-post-slide-title"><?php the_title(); ?></h3>
                                     </div>
-                                <?php else: ?>
-                                    <div class="bd-post-thumb bd-post-thumb-placeholder">
-                                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M8.5 10C9.32843 10 10 9.32843 10 8.5C10 7.67157 9.32843 7 8.5 7C7.67157 7 7 7.67157 7 8.5C7 9.32843 7.67157 10 8.5 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M21 15L16 10L5 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </div>
-                                <?php endif; ?>
-                                
-                                <div class="bd-post-content">
-                                    <div class="bd-post-meta">
-                                        <time class="bd-post-date" datetime="<?php echo get_the_date('c'); ?>">
-                                            <?php echo get_the_date('Y.m.d'); ?>
-                                        </time>
-                                        <?php
-                                        $categories = get_the_category();
-                                        if ($categories):
-                                            $category = $categories[0];
-                                        ?>
-                                            <span class="bd-post-category"><?php echo esc_html($category->name); ?></span>
-                                        <?php endif; ?>
-                                    </div>
-                                    
-                                    <h3 class="bd-post-title"><?php the_title(); ?></h3>
-                                    
-                                    <div class="bd-post-excerpt">
-                                        <?php echo wp_trim_words(get_the_excerpt(), 60, '...'); ?>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-                    <?php endwhile; ?>
+                                </a>
+                            </article>
+                        <?php endwhile; ?>
+                    </div>
+                    
+                    <button class="bd-slider-nav bd-slider-next" aria-label="次へ">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
                 </div>
+                
+                <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const slider = document.querySelector('.bd-latest-posts-slider');
+                    const prevBtn = document.querySelector('.bd-slider-prev');
+                    const nextBtn = document.querySelector('.bd-slider-next');
+                    
+                    if (slider && prevBtn && nextBtn) {
+                        let scrollAmount = 0;
+                        const cardWidth = 280; // カード幅 + gap
+                        
+                        nextBtn.addEventListener('click', function() {
+                            slider.scrollBy({ left: cardWidth, behavior: 'smooth' });
+                        });
+                        
+                        prevBtn.addEventListener('click', function() {
+                            slider.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+                        });
+                    }
+                });
+                </script>
                 
                 <div class="bd-view-all-posts">
                     <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="bd-view-all-button">
