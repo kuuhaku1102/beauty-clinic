@@ -40,4 +40,9 @@ jobs:
 
           sftp_only: true
           delete_remote_files: false
-          rsyncArgs: "--exclude='.git/' --exclude='.github/' --exclude='node_modules/' --exclude='.env' --exclude='.DS_Store'"
+          
+          # 除外ファイル・ディレクトリ
+          # - 開発環境ファイル
+          # - 自動ブログ投稿システム関連
+          # - ドキュメントファイル
+          rsyncArgs: "--exclude='.git/' --exclude='.github/' --exclude='node_modules/' --exclude='.env' --exclude='.DS_Store' --exclude='scripts/' --exclude='data/' --exclude='seo_keywords.json' --exclude='*.py' --exclude='*.md' --exclude='*.json' --exclude='.deployignore' --exclude='AUTO_BLOG_GUIDE.md' --exclude='PLUGIN_README.md'"
