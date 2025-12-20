@@ -46,6 +46,25 @@ function bd_theme_setup() {
 add_action('after_setup_theme', 'bd_theme_setup');
 
 /**
+ * ブログ設定
+ */
+function bd_blog_setup() {
+    // ブログページの投稿数を8件に設定
+    if (is_home() || is_archive() || is_category() || is_tag()) {
+        set_query_var('posts_per_page', 8);
+    }
+}
+add_action('pre_get_posts', 'bd_blog_posts_per_page');
+
+function bd_blog_posts_per_page($query) {
+    if (!is_admin() && $query->is_main_query()) {
+        if (is_home() || is_archive() || is_category() || is_tag()) {
+            $query->set('posts_per_page', 8);
+        }
+    }
+}
+
+/**
  * ウィジェットエリア登録
  */
 function bd_widgets_init() {
