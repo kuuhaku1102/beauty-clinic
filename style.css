@@ -54,6 +54,46 @@ a:hover {
     color: #777;
 }
 
+/* Header Navigation */
+.bd-header-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.bd-nav-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: #c2185b;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 999px;
+    transition: all .15s ease;
+    position: relative;
+}
+
+.bd-nav-link:hover {
+    background: rgba(194, 24, 91, 0.1);
+    text-decoration: none;
+}
+
+.bd-nav-link.current,
+.bd-nav-link:active {
+    background: #c2185b;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .bd-header-nav {
+        gap: 12px;
+    }
+    
+    .bd-nav-link {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+}
+
 /* Results info */
 .bd-results-info {
     margin: 16px 0 8px;

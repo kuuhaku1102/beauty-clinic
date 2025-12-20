@@ -29,8 +29,9 @@
       <div class="bd-logo">美容クリニックラボ</div>
       <div class="bd-tagline">Beauty Clinic Lab</div>
     </div>
-    <nav>
-      <a href="<?php echo esc_url(home_url('/')); ?>">ホーム</a>
+    <nav class="bd-header-nav">
+      <a href="<?php echo esc_url(home_url('/')); ?>" class="bd-nav-link">ホーム</a>
+      <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="bd-nav-link">美容コラム</a>
     </nav>
   </div>
 </header>
