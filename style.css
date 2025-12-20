@@ -2097,6 +2097,34 @@ a:hover {
     margin: 0;
 }
 
+.bd-hero-keywords {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.bd-keyword-tag {
+    display: inline-block;
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #c2185b;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 999px;
+    border: 1px solid rgba(194, 24, 91, 0.2);
+    transition: all .2s ease;
+}
+
+.bd-keyword-tag:hover {
+    background: #fff;
+    border-color: #c2185b;
+    box-shadow: 0 2px 8px rgba(194, 24, 91, 0.15);
+    transform: translateY(-2px);
+}
+
 /* Section Container */
 .bd-section-container {
     max-width: 1080px;
@@ -2411,5 +2439,249 @@ a:hover {
     .bd-latest-posts-section,
     .bd-about-section {
         padding: 40px 0;
+    }
+}
+
+/* ========================================
+   Search Intro Section
+   ======================================== */
+
+.bd-search-intro {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.bd-search-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 8px;
+}
+
+.bd-search-description {
+    font-size: 14px;
+    color: #777;
+    margin: 0;
+}
+
+/* ========================================
+   Popular Treatments Section
+   ======================================== */
+
+.bd-popular-treatments-section {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #faf7fb 0%, #f5f0f6 100%);
+}
+
+.bd-popular-treatments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+.bd-treatment-highlight-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    transition: all .3s ease;
+    border: 2px solid transparent;
+}
+
+.bd-treatment-highlight-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(194,24,91,0.15);
+    border-color: #e68cb6;
+}
+
+.bd-treatment-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.bd-treatment-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 12px;
+}
+
+.bd-treatment-desc {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+    margin: 0 0 16px;
+}
+
+.bd-treatment-price {
+    display: inline-block;
+    padding: 6px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #c2185b;
+    background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+    border-radius: 999px;
+}
+
+/* ========================================
+   Tips Section
+   ======================================== */
+
+.bd-tips-section {
+    padding: 60px 0;
+    background: #fff;
+}
+
+.bd-tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+}
+
+.bd-tip-card {
+    background: linear-gradient(135deg, #faf7fb 0%, #f5f0f6 100%);
+    border-radius: 18px;
+    padding: 32px 28px;
+    position: relative;
+    transition: all .3s ease;
+}
+
+.bd-tip-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(194,24,91,0.1);
+}
+
+.bd-tip-number {
+    position: absolute;
+    top: -16px;
+    left: 28px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #e68cb6, #c2185b);
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(194,24,91,0.3);
+}
+
+.bd-tip-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    margin: 16px 0 12px;
+}
+
+.bd-tip-text {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* ========================================
+   FAQ Section
+   ======================================== */
+
+.bd-faq-section {
+    padding: 60px 0;
+    background: #faf7fb;
+}
+
+.bd-faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.bd-faq-item {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px 32px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    transition: all .2s ease;
+}
+
+.bd-faq-item:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.bd-faq-question {
+    font-size: 17px;
+    font-weight: 700;
+    color: #c2185b;
+    margin: 0 0 12px;
+    padding-left: 28px;
+    position: relative;
+}
+
+.bd-faq-question::before {
+    content: 'Q';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #e68cb6, #c2185b);
+    border-radius: 4px;
+}
+
+.bd-faq-answer {
+    padding-left: 28px;
+}
+
+.bd-faq-answer p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* ========================================
+   Responsive Updates
+   ======================================== */
+
+@media (max-width: 768px) {
+    .bd-hero-keywords {
+        gap: 8px;
+        margin-top: 16px;
+    }
+    
+    .bd-keyword-tag {
+        font-size: 12px;
+        padding: 5px 12px;
+    }
+    
+    .bd-popular-treatments-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .bd-tips-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .bd-tip-card {
+        padding: 32px 24px;
+    }
+    
+    .bd-faq-item {
+        padding: 24px 20px;
+    }
+    
+    .bd-faq-question {
+        font-size: 16px;
     }
 }
