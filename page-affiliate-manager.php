@@ -207,8 +207,7 @@ get_header();
                     </div>
                 </div>
                 
-                <div class="bd-form-grid bd-form-grid-2">
-                    <!-- アフィリエイトカテゴリー -->
+                <!-- アフィリエイトカテゴリー -->
                     <div class="bd-form-group">
                         <label class="bd-form-label">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -240,8 +239,8 @@ get_header();
                             </div>
                         <?php endif; ?>
                     </div>
-                    
-                    <!-- 表示カテゴリー -->
+                
+                <!-- 表示カテゴリー -->
                     <div class="bd-form-group">
                         <label class="bd-form-label">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -259,7 +258,6 @@ get_header();
                         </select>
                         <small style="display: block; margin-top: 8px; color: #666;">どのカテゴリーの記事に表示するか選択</small>
                     </div>
-                </div>
 
                 <div class="bd-form-grid bd-form-grid-2">
                     <!-- 表示順序 -->
@@ -381,7 +379,56 @@ get_header();
                     <?php endforeach; ?>
                 </div>
             <?php endif; ?>
-     </div>
+        </div>
+    </div>
+
+    <!-- ショートコード使用方法 -->
+    <div class="bd-shortcode-info">
+        <h3 class="bd-shortcode-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 9l-4 3 4 3M16 9l4 3-4 3M12 3l-2 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            ショートコード使用方法
+        </h3>
+        <div class="bd-shortcode-content">
+            <p>登録したバナーをページや記事に表示するには、以下のショートコードを使用します：</p>
+            
+            <div class="bd-shortcode-example">
+                <div class="bd-shortcode-item">
+                    <strong>基本的な使用：</strong>
+                    <code>[affiliate_banners]</code>
+                    <p>現在のカテゴリーに対応するバナーを表示します。</p>
+                </div>
+                
+                <div class="bd-shortcode-item">
+                    <strong>カテゴリーを指定：</strong>
+                    <code>[affiliate_banners category="medical-hair-removal"]</code>
+                    <p>特定のカテゴリーのバナーのみを表示します。</p>
+                </div>
+                
+                <div class="bd-shortcode-item">
+                    <strong>表示数を制限：</strong>
+                    <code>[affiliate_banners limit="3"]</code>
+                    <p>表示するバナーの数を制限します。</p>
+                </div>
+                
+                <div class="bd-shortcode-item">
+                    <strong>組み合わせ：</strong>
+                    <code>[affiliate_banners category="skin-treatment" limit="2"]</code>
+                    <p>カテゴリーと表示数を同時に指定できます。</p>
+                </div>
+            </div>
+            
+            <div class="bd-shortcode-note">
+                <strong>注意：</strong>
+                <ul>
+                    <li>バナーは「表示順序」の小さい順に表示されます</li>
+                    <li>「有効にする」にチェックが入っているバナーのみ表示されます</li>
+                    <li>「表示カテゴリー」が空の場合、すべてのページに表示されます</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
 
 <style>
@@ -422,6 +469,103 @@ get_header();
     .bd-banner-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* ショートコード説明セクション */
+.bd-shortcode-info {
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.bd-shortcode-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 20px 0;
+}
+
+.bd-shortcode-title svg {
+    color: #e91e63;
+}
+
+.bd-shortcode-content {
+    color: #555;
+    line-height: 1.8;
+}
+
+.bd-shortcode-content > p {
+    margin: 0 0 20px 0;
+    font-size: 15px;
+}
+
+.bd-shortcode-example {
+    display: grid;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.bd-shortcode-item {
+    background: #f8f9fa;
+    border-left: 4px solid #e91e63;
+    padding: 16px 20px;
+    border-radius: 6px;
+}
+
+.bd-shortcode-item strong {
+    display: block;
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.bd-shortcode-item code {
+    display: block;
+    background: #fff;
+    color: #e91e63;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    margin: 8px 0;
+    border: 1px solid #e0e0e0;
+    word-break: break-all;
+}
+
+.bd-shortcode-item p {
+    margin: 8px 0 0 0;
+    font-size: 13px;
+    color: #666;
+}
+
+.bd-shortcode-note {
+    background: #fff3e0;
+    border: 1px solid #ffb74d;
+    border-radius: 8px;
+    padding: 16px 20px;
+}
+
+.bd-shortcode-note strong {
+    display: block;
+    color: #e65100;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.bd-shortcode-note ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.bd-shortcode-note li {
+    color: #666;
+    font-size: 13px;
+    margin: 6px 0;
 }
 </style>
 
