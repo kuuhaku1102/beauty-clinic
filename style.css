@@ -2685,3 +2685,310 @@ a:hover {
         font-size: 16px;
     }
 }
+
+/* ========================================
+   Category Page - SEO Hub Style
+   ======================================== */
+
+.bd-category-page {
+    background: #fff;
+}
+
+/* Category Hero */
+.bd-category-hero {
+    padding: 40px 0 32px;
+    background: linear-gradient(135deg, #faf7fb 0%, #f5f0f6 100%);
+}
+
+.bd-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 16px;
+}
+
+.bd-breadcrumb a {
+    color: #c2185b;
+    text-decoration: none;
+    transition: opacity .2s ease;
+}
+
+.bd-breadcrumb a:hover {
+    opacity: 0.7;
+}
+
+.bd-breadcrumb-separator {
+    color: #999;
+}
+
+.bd-category-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 12px;
+    line-height: 1.4;
+}
+
+.bd-category-description {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* Key Points */
+.bd-category-keypoints {
+    padding: 48px 0;
+    background: #fff;
+}
+
+.bd-section-subtitle {
+    font-size: 22px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 24px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #c2185b;
+    display: inline-block;
+}
+
+.bd-keypoints-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.bd-keypoint-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 20px;
+    background: #faf7fb;
+    border-radius: 12px;
+    font-size: 15px;
+    color: #333;
+    line-height: 1.7;
+}
+
+.bd-keypoint-item svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* Topics Grid */
+.bd-category-topics {
+    padding: 48px 0;
+    background: linear-gradient(135deg, #faf7fb 0%, #f5f0f6 100%);
+}
+
+.bd-topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.bd-topic-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px 20px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    transition: all .2s ease;
+}
+
+.bd-topic-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(194,24,91,0.1);
+}
+
+.bd-topic-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #c2185b;
+    margin: 0 0 8px;
+}
+
+.bd-topic-desc {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Articles Grid */
+.bd-category-articles {
+    padding: 48px 0 60px;
+    background: #fff;
+}
+
+.bd-articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.bd-article-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    overflow: hidden;
+    transition: all .2s ease;
+    border: 2px solid transparent;
+}
+
+.bd-article-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(194,24,91,0.12);
+    border-color: #e68cb6;
+}
+
+.bd-article-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    height: 100%;
+}
+
+.bd-article-content {
+    padding: 24px 20px;
+}
+
+.bd-article-date {
+    display: inline-block;
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.bd-article-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 10px;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.bd-article-excerpt {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.bd-no-posts {
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .bd-category-hero {
+        padding: 32px 0 24px;
+    }
+    
+    .bd-category-title {
+        font-size: 24px;
+    }
+    
+    .bd-category-description {
+        font-size: 14px;
+    }
+    
+    .bd-category-keypoints,
+    .bd-category-topics,
+    .bd-category-articles {
+        padding: 32px 0;
+    }
+    
+    .bd-section-subtitle {
+        font-size: 20px;
+    }
+    
+    .bd-topics-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .bd-articles-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/**
+ * ========================================
+ * 静的ページ（運営者情報・プライバシーポリシー）
+ * ========================================
+ */
+.bd-static-page {
+    padding: 60px 0;
+}
+
+.bd-static-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #c2185b;
+}
+
+.bd-static-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.bd-static-content h2 {
+    font-size: 1.8rem;
+    color: #c2185b;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #fce4ec;
+}
+
+.bd-static-content p, .bd-static-content ul {
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.bd-static-content ul {
+    padding-left: 20px;
+}
+
+.bd-static-content ul li {
+    margin-bottom: 10px;
+}
+
+.bd-company-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+}
+
+.bd-company-table th, .bd-company-table td {
+    padding: 15px;
+    border: 1px solid #eee;
+    text-align: left;
+}
+
+.bd-company-table th {
+    background-color: #fce4ec;
+    width: 30%;
+    font-weight: bold;
+}

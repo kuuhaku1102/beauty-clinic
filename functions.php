@@ -1040,3 +1040,140 @@ function bd_robots_txt_rules($output) {
     return $output;
 }
 add_filter('robots_txt', 'bd_robots_txt_rules');
+
+/**
+ * ========================================
+ * ページ速度最適化
+ * ========================================
+ */
+
+/**
+ * 画像の遅延読み込み（lazy loading）を有効化
+ * WordPress 5.5以降の標準機能を強化
+ */
+function bd_enable_lazy_loading($attr, $attachment, $size) {
+    // loading属性を追加
+    $attr['loading'] = 'lazy';
+    
+    // デコード属性を追加（画像デコードの最適化）
+    $attr['decoding'] = 'async';
+    
+    return $attr;
+}
+add_filter('wp_get_attachment_image_attributes', 'bd_enable_lazy_loading', 10, 3);
+
+/**
+ * コンテンツ内のimgタグにloading属性を追加
+ */
+function bd_add_lazy_loading_to_content($content) {
+    // imgタグにloading="lazy"を追加
+    $content = preg_replace('/<img((?![^>]*loading=)[^>]*)>/i', '<img$1 loading="lazy" decoding="async">', $content);
+    
+    return $content;
+}
+add_filter('the_content', 'bd_add_lazy_loading_to_content');
+
+/**
+ * CSSの最小化と最適化
+ */
+function bd_optimize_css() {
+    // WordPress標準のブロックライブラリCSSを条件付き読み込み
+    if (!has_blocks()) {
+        wp_dequeue_style('wp-block-library');
+        wp_dequeue_style('wp-block-library-theme');
+        wp_dequeue_style('wc-block-style');
+    }
+    
+    // 絵文字スクリプトを削除（不要な場合）
+    remove_action('wp_head', 'print_emoji_detection_script', 7);
+    remove_action('wp_print_styles', 'print_emoji_styles');
+}
+add_action('wp_enqueue_scripts', 'bd_optimize_css', 100);
+
+/**
+ * 不要なスクリプトとスタイルを削除
+ */
+function bd_remove_unnecessary_assets() {
+    // jQuery Migrateを削除（互換性問題がない場合）
+    if (!is_admin()) {
+        wp_deregister_script('jquery-migrate');
+    }
+    
+    // WordPressのバージョン情報を削除（セキュリティ向上）
+    remove_action('wp_head', 'wp_generator');
+    
+    // Windows Live Writerサポートを削除
+    remove_action('wp_head', 'wlwmanifest_link');
+    
+    // RSDリンクを削除
+    remove_action('wp_head', 'rsd_link');
+    
+    // 短縮URLを削除
+    remove_action('wp_head', 'wp_shortlink_wp_head');
+    
+    // REST APIリンクを削除（必要な場合はコメントアウト）
+    // remove_action('wp_head', 'rest_output_link_wp_head');
+}
+add_action('init', 'bd_remove_unnecessary_assets');
+
+/**
+ * DNS Prefetchを追加（外部リソースの読み込み高速化）
+ */
+function bd_add_dns_prefetch($hints, $relation_type) {
+    if ('dns-prefetch' === $relation_type) {
+        $hints[] = '//fonts.googleapis.com';
+        $hints[] = '//fonts.gstatic.com';
+    }
+    
+    return $hints;
+}
+add_filter('wp_resource_hints', 'bd_add_dns_prefetch', 10, 2);
+
+/**
+ * Preconnectを追加（重要な外部リソース）
+ */
+function bd_add_preconnect() {
+    echo '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n";
+    echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
+}
+add_action('wp_head', 'bd_add_preconnect', 1);
+
+/**
+ * 画像の最適化設定
+ */
+function bd_optimize_images() {
+    // WebP対応の確認
+    add_filter('wp_image_editors', function($editors) {
+        // GDよりImageMagickを優先（WebP対応）
+        return ['WP_Image_Editor_Imagick', 'WP_Image_Editor_GD'];
+    });
+}
+add_action('init', 'bd_optimize_images');
+
+/**
+ * ブラウザキャッシュの設定（.htaccessに追加推奨）
+ * この関数はHTMLヘッダーにキャッシュヒントを追加
+ */
+function bd_add_cache_headers() {
+    if (!is_admin()) {
+        header('Cache-Control: public, max-age=31536000');
+    }
+}
+// 静的ファイルのみキャッシュする場合はコメントアウト
+// add_action('send_headers', 'bd_add_cache_headers');
+
+/**
+ * 重要なCSSをインライン化（Above the fold）
+ */
+function bd_inline_critical_css() {
+    ?>
+    <style id="bd-critical-css">
+        /* Above the fold CSS */
+        body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.6;color:#333}
+        .bd-hero{background:linear-gradient(135deg,#ff6b9d 0%,#c2185b 100%);padding:60px 20px;text-align:center;color:#fff}
+        .bd-section-container{max-width:1200px;margin:0 auto;padding:0 20px}
+        img{max-width:100%;height:auto}
+    </style>
+    <?php
+}
+add_action('wp_head', 'bd_inline_critical_css', 1);
