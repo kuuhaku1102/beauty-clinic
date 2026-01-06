@@ -810,126 +810,95 @@ function bd_shortcode_prefecture_list() {
 }
 add_shortcode('beauty_prefecture_list', 'bd_shortcode_prefecture_list');
 
-/**
- * カスタム投稿タイプ: おすすめクリニック
- */
-function bd_register_featured_clinic_post_type() {
-    $labels = [
-        'name' => 'おすすめクリニック',
-        'singular_name' => 'おすすめクリニック',
-        'add_new' => '新規追加',
-        'add_new_item' => '新しいおすすめクリニックを追加',
-        'edit_item' => 'おすすめクリニックを編集',
-        'new_item' => '新しいおすすめクリニック',
-        'view_item' => 'おすすめクリニックを表示',
-        'search_items' => 'おすすめクリニックを検索',
-        'not_found' => 'おすすめクリニックが見つかりませんでした',
-        'not_found_in_trash' => 'ゴミ箱におすすめクリニックはありません',
-        'menu_name' => 'おすすめクリニック'
-    ];
 
-    $args = [
-        'labels' => $labels,
-        'public' => true,
-        'has_archive' => false,
-        'publicly_queryable' => false,
-        'show_ui' => true,
-        'show_in_menu' => true,
-        'menu_icon' => 'dashicons-star-filled',
-        'menu_position' => 5,
-        'supports' => ['title', 'editor', 'thumbnail'],
-        'rewrite' => false
-    ];
-
-    register_post_type('featured_clinic', $args);
-}
-add_action('init', 'bd_register_featured_clinic_post_type');
 
 /**
- * おすすめクリニックのカスタムフィールド
+ * ========================================
+ * アフィリエイトバナー管理機能
+ * ========================================
  */
-function bd_add_featured_clinic_meta_boxes() {
-    add_meta_box(
-        'bd_featured_clinic_details',
-        'クリニック詳細情報',
-        'bd_featured_clinic_meta_box_callback',
-        'featured_clinic',
-        'normal',
-        'high'
-    );
-}
-add_action('add_meta_boxes', 'bd_add_featured_clinic_meta_boxes');
 
-function bd_featured_clinic_meta_box_callback($post) {
-    wp_nonce_field('bd_save_featured_clinic_meta', 'bd_featured_clinic_nonce');
+/**
+ * データベーステーブルの作成
+ */
+function bd_create_affiliate_banners_table() {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'affiliate_banners';
+    $charset_collate = $wpdb->get_charset_collate();
+
+    $sql = "CREATE TABLE IF NOT EXISTS $table_name (
+        id INT(11) NOT NULL AUTO_INCREMENT,
+        title VARCHAR(255) NOT NULL,
+        banner_image_url TEXT NOT NULL,
+        affiliate_url TEXT NOT NULL,
+        target_prefectures TEXT,
+        category VARCHAR(100) DEFAULT '',
+        display_order INT(11) DEFAULT 0,
+        is_active TINYINT(1) DEFAULT 1,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        PRIMARY KEY (id)
+    ) $charset_collate;";
+
+    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+    dbDelta($sql);
+}
+add_action('after_switch_theme', 'bd_create_affiliate_banners_table');
+
+/**
+ * バナーの取得
+ */
+function bd_get_affiliate_banners($limit = 3, $category = '') {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'affiliate_banners';
     
-    $affiliate_url = get_post_meta($post->ID, '_bd_affiliate_url', true);
-    $display_order = get_post_meta($post->ID, '_bd_display_order', true);
-    $category = get_post_meta($post->ID, '_bd_category', true);
+    $where = "WHERE is_active = 1";
+    
+    if (!empty($category)) {
+        $where .= $wpdb->prepare(" AND (category = %s OR category = '')", $category);
+    }
+    
+    $sql = "SELECT * FROM $table_name $where ORDER BY display_order ASC, id DESC LIMIT %d";
+    
+    return $wpdb->get_results($wpdb->prepare($sql, $limit));
+}
+
+/**
+ * バナー表示用のショートコード
+ */
+function bd_affiliate_banners_shortcode($atts) {
+    $atts = shortcode_atts([
+        'limit' => 3,
+        'category' => ''
+    ], $atts);
+    
+    $banners = bd_get_affiliate_banners($atts['limit'], $atts['category']);
+    
+    if (empty($banners)) {
+        return '';
+    }
+    
+    ob_start();
     ?>
-    <table class="form-table">
-        <tr>
-            <th><label for="bd_affiliate_url">アフィリエイトリンク</label></th>
-            <td>
-                <input type="url" id="bd_affiliate_url" name="bd_affiliate_url" 
-                       value="<?php echo esc_attr($affiliate_url); ?>" 
-                       class="large-text" placeholder="https://example.com/affiliate">
-                <p class="description">クリック時に遷移するアフィリエイトリンクを入力してください</p>
-            </td>
-        </tr>
-        <tr>
-            <th><label for="bd_category">カテゴリー</label></th>
-            <td>
-                <select id="bd_category" name="bd_category">
-                    <option value="">選択してください</option>
-                    <option value="脱毛" <?php selected($category, '脱毛'); ?>>脱毛</option>
-                    <option value="二重" <?php selected($category, '二重'); ?>>二重</option>
-                    <option value="美肌" <?php selected($category, '美肌'); ?>>美肌</option>
-                    <option value="痩身" <?php selected($category, '痩身'); ?>>痩身</option>
-                    <option value="AGA" <?php selected($category, 'AGA'); ?>>AGA</option>
-                    <option value="その他" <?php selected($category, 'その他'); ?>>その他</option>
-                </select>
-                <p class="description">クリニックのカテゴリーを選択してください</p>
-            </td>
-        </tr>
-        <tr>
-            <th><label for="bd_display_order">表示順序</label></th>
-            <td>
-                <input type="number" id="bd_display_order" name="bd_display_order" 
-                       value="<?php echo esc_attr($display_order ?: 0); ?>" 
-                       min="0" step="1">
-                <p class="description">数字が小さいほど先に表示されます（0が最優先）</p>
-            </td>
-        </tr>
-    </table>
-    <p><strong>アイキャッチ画像:</strong> 右側の「アイキャッチ画像を設定」から画像をアップロードしてください。複数の画像を表示したい場合は、本文エディタに画像を挿入してください。</p>
+    <div class="bd-affiliate-banners">
+        <?php foreach ($banners as $banner): ?>
+            <div class="bd-affiliate-banner-card">
+                <a href="<?php echo esc_url($banner->affiliate_url); ?>" 
+                   target="_blank" 
+                   rel="noopener noreferrer sponsored"
+                   class="bd-affiliate-banner-link">
+                    <img src="<?php echo esc_url($banner->banner_image_url); ?>" 
+                         alt="<?php echo esc_attr($banner->title); ?>"
+                         loading="lazy"
+                         decoding="async">
+                    <div class="bd-affiliate-banner-title">
+                        <?php echo esc_html($banner->title); ?>
+                    </div>
+                </a>
+            </div>
+        <?php endforeach; ?>
+    </div>
     <?php
+    return ob_get_clean();
 }
-
-function bd_save_featured_clinic_meta($post_id) {
-    if (!isset($_POST['bd_featured_clinic_nonce']) || 
-        !wp_verify_nonce($_POST['bd_featured_clinic_nonce'], 'bd_save_featured_clinic_meta')) {
-        return;
-    }
-
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
-        return;
-    }
-
-    if (!current_user_can('edit_post', $post_id)) {
-        return;
-    }
-
-    if (isset($_POST['bd_affiliate_url'])) {
-        update_post_meta($post_id, '_bd_affiliate_url', esc_url_raw($_POST['bd_affiliate_url']));
-    }
-
-    if (isset($_POST['bd_category'])) {
-        update_post_meta($post_id, '_bd_category', sanitize_text_field($_POST['bd_category']));
-    }
-
-    if (isset($_POST['bd_display_order'])) {
-        update_post_meta($post_id, '_bd_display_order', intval($_POST['bd_display_order']));
-    }
-}
-add_action('save_post_featured_clinic', 'bd_save_featured_clinic_meta');
+add_shortcode('affiliate_banners', 'bd_affiliate_banners_shortcode');

@@ -2685,3 +2685,327 @@ a:hover {
         font-size: 16px;
     }
 }
+
+
+/**
+ * ========================================
+ * アフィリエイトバナー管理
+ * ========================================
+ */
+
+/* バナー表示（フロントエンド） */
+.bd-affiliate-banners {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.bd-affiliate-banner-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.04);
+    overflow: hidden;
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.bd-affiliate-banner-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+}
+
+.bd-affiliate-banner-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.bd-affiliate-banner-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.bd-affiliate-banner-title {
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+}
+
+/* ブログ記事内のバナー */
+.bd-blog-affiliate-section {
+    margin: 48px 0;
+    padding: 32px;
+    background: #faf7fb;
+    border-radius: 18px;
+}
+
+.bd-affiliate-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #c2185b;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+    .bd-affiliate-banners {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .bd-blog-affiliate-section {
+        padding: 20px;
+    }
+}
+
+/* 管理画面スタイル */
+.bd-affiliate-manager {
+    padding: 40px 0;
+}
+
+.bd-manager-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #c2185b;
+    margin-bottom: 32px;
+}
+
+.bd-message {
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    font-size: 14px;
+}
+
+.bd-message-success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.bd-manager-form-section,
+.bd-manager-list-section,
+.bd-manager-usage-section {
+    background: #fff;
+    padding: 32px;
+    border-radius: 18px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 32px;
+}
+
+.bd-manager-form-section h2,
+.bd-manager-list-section h2,
+.bd-manager-usage-section h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 24px;
+}
+
+.bd-banner-form {
+    max-width: 800px;
+}
+
+.bd-form-row {
+    margin-bottom: 24px;
+}
+
+.bd-form-row label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.required {
+    color: #c2185b;
+}
+
+.bd-input,
+.bd-textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #e0cfe8;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color .2s ease;
+}
+
+.bd-input:focus,
+.bd-textarea:focus {
+    outline: none;
+    border-color: #c2185b;
+}
+
+.bd-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.bd-form-help {
+    font-size: 12px;
+    color: #666;
+    margin-top: 4px;
+}
+
+.bd-form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.bd-btn-primary {
+    background: linear-gradient(135deg, #f48fb1, #ce93d8);
+    color: #fff;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .2s ease;
+}
+
+.bd-btn-primary:hover {
+    opacity: 0.9;
+}
+
+.bd-btn-secondary {
+    background: #f5f5f5;
+    color: #333;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: background .2s ease;
+}
+
+.bd-btn-secondary:hover {
+    background: #e0e0e0;
+}
+
+.bd-no-data {
+    text-align: center;
+    color: #999;
+    padding: 40px 0;
+}
+
+.bd-banners-table-wrapper {
+    overflow-x: auto;
+}
+
+.bd-banners-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.bd-banners-table thead {
+    background: #fce4ec;
+}
+
+.bd-banners-table th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    color: #c2185b;
+}
+
+.bd-banners-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f1e4f2;
+}
+
+.bd-banner-preview {
+    width: 120px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.bd-status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.bd-status-active {
+    background: #d4edda;
+    color: #155724;
+}
+
+.bd-status-inactive {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.bd-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.bd-btn-small {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity .2s ease;
+}
+
+.bd-btn-edit {
+    background: #c2185b;
+    color: #fff;
+}
+
+.bd-btn-delete {
+    background: #dc3545;
+    color: #fff;
+}
+
+.bd-btn-small:hover {
+    opacity: 0.8;
+}
+
+.bd-code {
+    background: #f5f5f5;
+    padding: 16px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    overflow-x: auto;
+    margin: 16px 0;
+}
+
+@media (max-width: 768px) {
+    .bd-manager-form-section,
+    .bd-manager-list-section,
+    .bd-manager-usage-section {
+        padding: 20px;
+    }
+    
+    .bd-banners-table {
+        font-size: 12px;
+    }
+    
+    .bd-banners-table th,
+    .bd-banners-table td {
+        padding: 8px;
+    }
+    
+    .bd-banner-preview {
+        width: 80px;
+    }
+}

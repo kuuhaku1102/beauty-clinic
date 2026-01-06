@@ -194,6 +194,17 @@ get_header();
         </div>
     </section>
     
+    <!-- アフィリエイトバナーセクション -->
+    <section class="bd-affiliate-section">
+        <div class="bd-section-container">
+            <div class="bd-section-header">
+                <h2 class="bd-section-title">おすすめクリニック</h2>
+                <p class="bd-section-description">人気の美容クリニックをご紹介</p>
+            </div>
+            <?php echo do_shortcode('[affiliate_banners limit="3"]'); ?>
+        </div>
+    </section>
+    
     <!-- クリニック選びのポイントセクション -->
     <section class="bd-tips-section">
         <div class="bd-section-container">

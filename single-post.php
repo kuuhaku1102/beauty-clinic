@@ -117,6 +117,19 @@ while (have_posts()): the_post();
         </footer>
     </article>
     
+    <!-- アフィリエイトバナー -->
+    <div class="bd-blog-affiliate-section">
+        <h2 class="bd-affiliate-title">おすすめクリニック</h2>
+        <?php 
+        $categories = get_the_category();
+        $category_name = '';
+        if ($categories) {
+            $category_name = $categories[0]->name;
+        }
+        echo do_shortcode('[affiliate_banners limit="3" category="' . esc_attr($category_name) . '"]'); 
+        ?>
+    </div>
+    
     <!-- 関連記事 -->
     <?php
     $categories = get_the_category();
