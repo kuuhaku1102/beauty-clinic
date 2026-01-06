@@ -3238,3 +3238,179 @@ a:hover {
         justify-content: center;
     }
 }
+
+/* Affiliate Manager - Enhanced Form Inputs */
+.bd-form-input,
+.bd-form-select {
+    width: 100%;
+    padding: 18px 24px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    background: #fff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: 58px;
+    color: #333;
+}
+
+.bd-form-input:focus,
+.bd-form-select:focus {
+    outline: none;
+    border-color: #c2185b;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(194, 24, 91, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.bd-form-input:hover,
+.bd-form-select:hover {
+    border-color: #d81b60;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.bd-form-input::placeholder {
+    color: #999;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.bd-form-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23666' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    padding-right: 50px;
+}
+
+.bd-form-select:focus {
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23c2185b' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+/* Form Label Enhancement */
+.bd-form-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+}
+
+.bd-form-label svg {
+    color: #c2185b;
+    flex-shrink: 0;
+}
+
+/* Form Group Spacing */
+.bd-form-group {
+    margin-bottom: 32px;
+}
+
+.bd-form-group small {
+    display: block;
+    margin-top: 10px;
+    color: #666;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* Enhanced Button Styles */
+.bd-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 36px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    text-decoration: none;
+    min-height: 56px;
+}
+
+.bd-btn-primary {
+    background: linear-gradient(135deg, #f48fb1, #ce93d8);
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(244, 143, 177, 0.35);
+}
+
+.bd-btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(244, 143, 177, 0.45);
+}
+
+.bd-btn-primary:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(244, 143, 177, 0.3);
+}
+
+.bd-btn-secondary {
+    background: #f5f5f5;
+    color: #333;
+    border: 2px solid #e0e0e0;
+}
+
+.bd-btn-secondary:hover {
+    background: #e8e8e8;
+    border-color: #d0d0d0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Checkbox Enhancement */
+.bd-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 16px 20px;
+    background: #f9f9f9;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+}
+
+.bd-checkbox-label:hover {
+    background: #f0f0f0;
+    border-color: #e0e0e0;
+}
+
+.bd-checkbox-label input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    accent-color: #c2185b;
+}
+
+.bd-checkbox-text {
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .bd-form-input,
+    .bd-form-select {
+        padding: 16px 20px;
+        font-size: 16px;
+        min-height: 54px;
+    }
+    
+    .bd-form-label {
+        font-size: 14px;
+    }
+    
+    .bd-btn {
+        padding: 14px 28px;
+        font-size: 15px;
+        min-height: 52px;
+    }
+}

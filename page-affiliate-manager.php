@@ -173,15 +173,12 @@ get_header();
                                 </svg>
                                 アフィリエイトカテゴリー
                             </label>
-                            <select name="affiliate_category" class="bd-form-select">
-                                <option value="">選択してください</option>
-                                <option value="クリニック" <?php echo ($edit_banner && $edit_banner->affiliate_category === 'クリニック') ? 'selected' : ''; ?>>クリニック</option>
-                                <option value="脱毛" <?php echo ($edit_banner && $edit_banner->affiliate_category === '脱毛') ? 'selected' : ''; ?>>脱毛</option>
-                                <option value="美容整形" <?php echo ($edit_banner && $edit_banner->affiliate_category === '美容整形') ? 'selected' : ''; ?>>美容整形</option>
-                                <option value="美肌" <?php echo ($edit_banner && $edit_banner->affiliate_category === '美肌') ? 'selected' : ''; ?>>美肌</option>
-                                <option value="痩身" <?php echo ($edit_banner && $edit_banner->affiliate_category === '痩身') ? 'selected' : ''; ?>>痩身</option>
-                            </select>
-                            <small style="display: block; margin-top: 8px; color: #666;">バナーの種類を選択</small>
+                            <input type="text" 
+                                   name="affiliate_category" 
+                                   value="<?php echo $edit_banner ? esc_attr($edit_banner->affiliate_category) : ''; ?>" 
+                                   class="bd-form-input" 
+                                   placeholder="例: クリニック、脱毛、美容整形、美肌、痩身">
+                            <small style="display: block; margin-top: 8px; color: #666;">バナーの種類を入力（自由に追加可能）</small>
                         </div>
                         
                         <!-- 表示カテゴリー -->
