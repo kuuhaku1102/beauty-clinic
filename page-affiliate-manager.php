@@ -136,8 +136,8 @@ get_header();
         </div>
     <?php endif; ?>
 
-    <div class="bd-manager-grid">
-        <!-- 左側: バナー登録フォーム -->
+    <!-- バナー登録フォーム（上部ワイド） -->
+    <div class="bd-manager-form-section-wide">
         <div class="bd-manager-form-section">
             <div class="bd-section-header">
                 <h2 class="bd-section-title">
@@ -309,11 +309,12 @@ get_header();
                             キャンセル
                         </a>
                     <?php endif; ?>
-                </div>
-            </form>
+                               </form>
         </div>
+    </div>
 
-        <!-- 右側: バナー一覧 -->
+    <!-- 登録済みバナー一覧（下部） -->
+    <div class="bd-manager-list-section-wide">
         <div class="bd-manager-list-section">
             <div class="bd-section-header">
                 <h2 class="bd-section-title">登録済みバナー</h2>
@@ -380,9 +381,49 @@ get_header();
                     <?php endforeach; ?>
                 </div>
             <?php endif; ?>
-        </div>
-    </div>
+     </div>
 </div>
+
+<style>
+.bd-manager-form-section-wide {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.bd-manager-list-section-wide {
+    width: 100%;
+}
+
+.bd-manager-list-section-wide .bd-manager-list-section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* グリッドレイアウトを無効化 */
+.bd-manager-grid {
+    display: block;
+}
+
+/* フォームセクションをワイド表示 */
+.bd-manager-form-section {
+    max-width: 100%;
+}
+
+/* バナーカードをグリッド表示 */
+.bd-banner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .bd-banner-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 
 <script>
 // カテゴリータグのクリックイベント
