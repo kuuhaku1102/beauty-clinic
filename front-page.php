@@ -194,16 +194,53 @@ get_header();
         </div>
     </section>
     
-    <!-- アフィリエイトバナーセクション -->
+    <!-- アフィリエイトバナーセクション（カテゴリー別） -->
+    <?php
+    // アフィリエイトカテゴリー別にバナーを取得
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'affiliate_banners';
+    
+    // 有効なバナーをカテゴリー別にグループ化
+    $banners_by_category = [];
+    $banners = $wpdb->get_results("
+        SELECT * FROM $table_name 
+        WHERE is_active = 1 
+        AND (display_category = '' OR display_category IS NULL)
+        ORDER BY display_order ASC, id DESC
+    ");
+    
+    foreach ($banners as $banner) {
+        $category = $banner->affiliate_category ? $banner->affiliate_category : 'その他';
+        if (!isset($banners_by_category[$category])) {
+            $banners_by_category[$category] = [];
+        }
+        $banners_by_category[$category][] = $banner;
+    }
+    
+    // 各カテゴリーごとに表示
+    foreach ($banners_by_category as $category => $category_banners):
+    ?>
     <section class="bd-affiliate-section">
         <div class="bd-section-container">
             <div class="bd-section-header">
-                <h2 class="bd-section-title">おすすめクリニック</h2>
-                <p class="bd-section-description">人気の美容クリニックをご紹介</p>
+                <h2 class="bd-section-title">おすすめ<?php echo esc_html($category); ?></h2>
+                <p class="bd-section-description">人気の<?php echo esc_html($category); ?>をご紹介</p>
             </div>
-            <?php echo do_shortcode('[affiliate_banners limit="3"]'); ?>
+            <div class="bd-affiliate-banners">
+                <?php foreach (array_slice($category_banners, 0, 3) as $banner): ?>
+                    <a href="<?php echo esc_url($banner->affiliate_url); ?>" 
+                       class="bd-affiliate-banner" 
+                       target="_blank" 
+                       rel="noopener noreferrer nofollow">
+                        <img src="<?php echo esc_url($banner->banner_image_url); ?>" 
+                             alt="<?php echo esc_attr($banner->title); ?>" 
+                             loading="lazy">
+                    </a>
+                <?php endforeach; ?>
+            </div>
         </div>
     </section>
+    <?php endforeach; ?>
     
     <!-- クリニック選びのポイントセクション -->
     <section class="bd-tips-section">
