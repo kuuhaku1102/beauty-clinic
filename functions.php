@@ -831,8 +831,8 @@ function bd_create_affiliate_banners_table() {
         title VARCHAR(255) NOT NULL,
         banner_image_url TEXT NOT NULL,
         affiliate_url TEXT NOT NULL,
-        target_prefectures TEXT,
-        category VARCHAR(100) DEFAULT '',
+        affiliate_category VARCHAR(100) DEFAULT '',
+        display_category VARCHAR(100) DEFAULT '',
         display_order INT(11) DEFAULT 0,
         is_active TINYINT(1) DEFAULT 1,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -848,14 +848,14 @@ add_action('after_switch_theme', 'bd_create_affiliate_banners_table');
 /**
  * バナーの取得
  */
-function bd_get_affiliate_banners($limit = 3, $category = '') {
+function bd_get_affiliate_banners($limit = 3, $display_category = '') {
     global $wpdb;
     $table_name = $wpdb->prefix . 'affiliate_banners';
     
     $where = "WHERE is_active = 1";
     
-    if (!empty($category)) {
-        $where .= $wpdb->prepare(" AND (category = %s OR category = '')", $category);
+    if (!empty($display_category)) {
+        $where .= $wpdb->prepare(" AND (display_category = %s OR display_category = '')", $display_category);
     }
     
     $sql = "SELECT * FROM $table_name $where ORDER BY display_order ASC, id DESC LIMIT %d";
