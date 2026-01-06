@@ -933,3 +933,110 @@ function bd_save_featured_clinic_meta($post_id) {
     }
 }
 add_action('save_post_featured_clinic', 'bd_save_featured_clinic_meta');
+
+/**
+ * 2026年SEO完全準拠 noindex設定
+ * スパムポリシー対応：評価の分散を防ぐ
+ */
+function bd_seo_noindex_pages() {
+    // 管理画面では実行しない
+    if (is_admin()) {
+        return;
+    }
+    
+    $noindex = false;
+    
+    // タグページ
+    if (is_tag()) {
+        $noindex = true;
+    }
+    
+    // 日付アーカイブ
+    if (is_date() || is_year() || is_month() || is_day()) {
+        $noindex = true;
+    }
+    
+    // 著者アーカイブ
+    if (is_author()) {
+        $noindex = true;
+    }
+    
+    // 内部検索結果
+    if (is_search()) {
+        $noindex = true;
+    }
+    
+    // ページネーション2ページ目以降
+    if (is_paged() && get_query_var('paged') > 1) {
+        $noindex = true;
+    }
+    
+    // 絞り込み・並び替えURL（GETパラメータがある場合）
+    if (!empty($_GET) && !is_singular()) {
+        // 許可するパラメータ（例：paged）
+        $allowed_params = ['paged'];
+        $current_params = array_keys($_GET);
+        $has_filter_params = !empty(array_diff($current_params, $allowed_params));
+        
+        if ($has_filter_params) {
+            $noindex = true;
+        }
+    }
+    
+    // noindexメタタグを出力
+    if ($noindex) {
+        echo '<meta name="robots" content="noindex, follow">' . "\n";
+    }
+}
+add_action('wp_head', 'bd_seo_noindex_pages', 1);
+
+/**
+ * XMLサイトマップからnoindexページを除外
+ * (WordPress 5.5以降の標準サイトマップ対応)
+ */
+function bd_exclude_noindex_from_sitemap($args, $post_type) {
+    // タグをサイトマップから除外
+    if ($post_type === 'post_tag') {
+        $args['public'] = false;
+    }
+    
+    return $args;
+}
+add_filter('wp_sitemaps_post_types', 'bd_exclude_noindex_from_sitemap', 10, 2);
+
+/**
+ * タクソノミーサイトマップからタグを除外
+ */
+function bd_exclude_tags_from_sitemap($taxonomies) {
+    unset($taxonomies['post_tag']);
+    return $taxonomies;
+}
+add_filter('wp_sitemaps_taxonomies', 'bd_exclude_tags_from_sitemap');
+
+/**
+ * カテゴリページのcanonical URL設定
+ * ページネーション2ページ目以降は1ページ目にcanonical
+ */
+function bd_category_canonical_url() {
+    if (is_category() && is_paged() && get_query_var('paged') > 1) {
+        $category_link = get_category_link(get_queried_object_id());
+        echo '<link rel="canonical" href="' . esc_url($category_link) . '">' . "\n";
+    }
+}
+add_action('wp_head', 'bd_category_canonical_url', 2);
+
+/**
+ * 検索エンジンにnoindexページのクロール頻度を下げる
+ */
+function bd_robots_txt_rules($output) {
+    $output .= "\n# 2026年SEO最適化\n";
+    $output .= "User-agent: *\n";
+    $output .= "Disallow: /*?*\n";  // クエリパラメータ付きURL
+    $output .= "Disallow: /tag/\n";  // タグページ
+    $output .= "Disallow: /author/\n";  // 著者ページ
+    $output .= "Disallow: /*/page/\n";  // ページネーション
+    $output .= "Allow: /wp-content/uploads/\n";  // 画像は許可
+    
+    return $output;
+}
+add_filter('robots_txt', 'bd_robots_txt_rules');
