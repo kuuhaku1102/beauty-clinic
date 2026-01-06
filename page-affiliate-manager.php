@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['bd_affiliate_nonce'])
         }
 
         if ($result !== false) {
-            wp_redirect(admin_url('admin.php?page=affiliate-manager'));
+            wp_redirect(get_permalink());
             exit;
         }
     }
@@ -259,8 +259,7 @@ get_header();
                         <small style="display: block; margin-top: 8px; color: #666;">どのカテゴリーの記事に表示するか選択</small>
                     </div>
 
-                <div class="bd-form-grid bd-form-grid-2">
-                    <!-- 表示順序 -->
+                <!-- 表示順序 -->
                     <div class="bd-form-group">
                         <label class="bd-form-label">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -277,7 +276,7 @@ get_header();
                         <small style="display: block; margin-top: 8px; color: #666;">数字が小さいほど優先的に表示</small>
                     </div>
 
-                    <!-- 有効/無効 -->
+                <!-- 有効/無効 -->
                     <div class="bd-form-group">
                         <label class="bd-form-label">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -293,7 +292,6 @@ get_header();
                             <span class="bd-checkbox-text">有効にする</span>
                         </label>
                     </div>
-                </div>
 
                 <div class="bd-form-actions">
                     <button type="submit" class="bd-btn bd-btn-primary">
