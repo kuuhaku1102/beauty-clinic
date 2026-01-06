@@ -1,0 +1,293 @@
+{
+  "seo_strategy": {
+    "principle": "評価の集中・量より質・スパムポリシー完全準拠",
+    "posting_frequency": "週2-3回（火・木・土）",
+    "article_lifecycle": "10-30記事でカテゴリ完成 → 次カテゴリへ"
+  },
+  
+  "categories": [
+    {
+      "id": 1,
+      "slug": "medical-hair-removal",
+      "name": "医療脱毛",
+      "description": "医療脱毛の基礎知識・クリニック選び・施術解説",
+      "search_intent": "医療脱毛を検討している人が知りたい情報",
+      "target_articles": 15,
+      "seo_hub_content": {
+        "intro": "医療脱毛とは？永久脱毛との違い、料金相場、痛み、回数など基礎知識",
+        "main_topics": [
+          "医療脱毛の仕組み",
+          "クリニックの選び方",
+          "部位別の特徴",
+          "料金相場と支払い方法"
+        ],
+        "internal_links": "主要記事へのナビゲーション"
+      },
+      "article_roles": [
+        {
+          "role": "基礎知識（エース記事）",
+          "title_example": "医療脱毛とは？仕組み・効果・料金相場を徹底解説",
+          "purpose": "初心者が最初に読む記事",
+          "differentiation": "網羅的だが分かりやすさ重視",
+          "priority": 1
+        },
+        {
+          "role": "クリニック選びの判断基準",
+          "title_example": "失敗しない医療脱毛クリニックの選び方｜5つのチェックポイント",
+          "purpose": "比較検討段階の読者向け",
+          "differentiation": "独自の評価軸・判断基準",
+          "priority": 2
+        },
+        {
+          "role": "部位別解説（全身）",
+          "title_example": "全身脱毛の料金相場と回数｜部位別の痛みと効果",
+          "purpose": "全身脱毛を検討する読者向け",
+          "differentiation": "部位ごとの詳細情報",
+          "priority": 3
+        },
+        {
+          "role": "部位別解説（VIO）",
+          "title_example": "VIO医療脱毛の痛み・恥ずかしさ対策｜実際の施術の流れ",
+          "purpose": "VIO脱毛の不安を解消",
+          "differentiation": "心理的ハードルへの対応",
+          "priority": 4
+        },
+        {
+          "role": "部位別解説（顔）",
+          "title_example": "顔脱毛の効果とリスク｜産毛への効果と注意点",
+          "purpose": "顔脱毛特有の疑問に回答",
+          "differentiation": "産毛・肌質への配慮",
+          "priority": 5
+        },
+        {
+          "role": "痛み対策",
+          "title_example": "医療脱毛の痛みを軽減する方法｜麻酔の種類と効果",
+          "purpose": "痛みへの不安を解消",
+          "differentiation": "具体的な対策方法",
+          "priority": 6
+        },
+        {
+          "role": "機器比較",
+          "title_example": "医療脱毛機器の種類と特徴｜熱破壊式vs蓄熱式",
+          "purpose": "機器選びの判断材料",
+          "differentiation": "技術的な違いを分かりやすく",
+          "priority": 7
+        },
+        {
+          "role": "料金・支払い",
+          "title_example": "医療脱毛の料金体系｜月額制・都度払い・コース料金の違い",
+          "purpose": "支払い方法の選択",
+          "differentiation": "金額シミュレーション",
+          "priority": 8
+        },
+        {
+          "role": "注意点・トラブル",
+          "title_example": "医療脱毛で起こりうるトラブルと対処法｜肌荒れ・火傷のリスク",
+          "purpose": "リスク理解と予防",
+          "differentiation": "実例ベースの注意喚起",
+          "priority": 9
+        },
+        {
+          "role": "アフターケア",
+          "title_example": "医療脱毛後のスキンケア｜保湿・日焼け対策の重要性",
+          "purpose": "施術後の適切なケア",
+          "differentiation": "具体的なケア方法",
+          "priority": 10
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "slug": "double-eyelid-surgery",
+      "name": "二重整形",
+      "description": "二重整形の基礎知識・埋没法と切開法の違い・クリニック選び",
+      "search_intent": "二重整形を検討している人が知りたい情報",
+      "target_articles": 12,
+      "article_roles": [
+        {
+          "role": "基礎知識（エース記事）",
+          "title_example": "二重整形とは？埋没法・切開法の違いと料金相場",
+          "purpose": "初心者向け総合ガイド",
+          "priority": 1
+        },
+        {
+          "role": "埋没法詳細",
+          "title_example": "埋没法のメリット・デメリット｜ダウンタイムと持続期間",
+          "purpose": "埋没法を検討する読者向け",
+          "priority": 2
+        },
+        {
+          "role": "切開法詳細",
+          "title_example": "切開法の種類と選び方｜全切開・部分切開の違い",
+          "purpose": "切開法を検討する読者向け",
+          "priority": 3
+        },
+        {
+          "role": "クリニック選び",
+          "title_example": "二重整形クリニックの選び方｜失敗しない5つのポイント",
+          "purpose": "クリニック比較の判断基準",
+          "priority": 4
+        },
+        {
+          "role": "ダウンタイム",
+          "title_example": "二重整形のダウンタイム｜腫れ・内出血を早く治す方法",
+          "purpose": "術後の不安解消",
+          "priority": 5
+        },
+        {
+          "role": "失敗例・リスク",
+          "title_example": "二重整形の失敗例とリスク｜左右差・食い込みの原因",
+          "purpose": "リスク理解と予防",
+          "priority": 6
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "slug": "skin-treatment",
+      "name": "美肌治療",
+      "description": "シミ・毛穴・ニキビ跡治療の基礎知識と施術解説",
+      "search_intent": "美肌治療を検討している人が知りたい情報",
+      "target_articles": 15,
+      "article_roles": [
+        {
+          "role": "基礎知識（エース記事）",
+          "title_example": "美肌治療の種類と効果｜シミ・毛穴・ニキビ跡に効く施術",
+          "purpose": "初心者向け総合ガイド",
+          "priority": 1
+        },
+        {
+          "role": "レーザー治療",
+          "title_example": "ピコレーザーとは？シミ取り効果とダウンタイム",
+          "purpose": "レーザー治療の詳細",
+          "priority": 2
+        },
+        {
+          "role": "光治療",
+          "title_example": "フォトフェイシャルの効果｜IPL治療の仕組みと回数",
+          "purpose": "光治療の詳細",
+          "priority": 3
+        },
+        {
+          "role": "ピーリング",
+          "title_example": "ケミカルピーリングの種類と効果｜ニキビ跡・毛穴への効果",
+          "purpose": "ピーリング治療の詳細",
+          "priority": 4
+        },
+        {
+          "role": "ダーマペン",
+          "title_example": "ダーマペンとは？ニキビ跡・毛穴への効果と痛み",
+          "purpose": "ダーマペン治療の詳細",
+          "priority": 5
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "slug": "botox-injection",
+      "name": "ボトックス注射",
+      "description": "ボトックス注射の基礎知識・効果・料金相場",
+      "search_intent": "ボトックス注射を検討している人が知りたい情報",
+      "target_articles": 10,
+      "article_roles": [
+        {
+          "role": "基礎知識（エース記事）",
+          "title_example": "ボトックス注射とは？効果・持続期間・料金相場",
+          "purpose": "初心者向け総合ガイド",
+          "priority": 1
+        },
+        {
+          "role": "部位別（額・眉間）",
+          "title_example": "額・眉間のボトックス注射｜表情ジワへの効果と注意点",
+          "purpose": "部位別の詳細情報",
+          "priority": 2
+        },
+        {
+          "role": "部位別（エラ）",
+          "title_example": "エラボトックスの効果｜小顔効果と持続期間",
+          "purpose": "エラ張り改善の詳細",
+          "priority": 3
+        },
+        {
+          "role": "失敗例・リスク",
+          "title_example": "ボトックス注射の失敗例｜表情が不自然になる原因",
+          "purpose": "リスク理解と予防",
+          "priority": 4
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "slug": "hyaluronic-acid",
+      "name": "ヒアルロン酸注射",
+      "description": "ヒアルロン酸注射の基礎知識・効果・料金相場",
+      "search_intent": "ヒアルロン酸注射を検討している人が知りたい情報",
+      "target_articles": 10,
+      "article_roles": [
+        {
+          "role": "基礎知識（エース記事）",
+          "title_example": "ヒアルロン酸注射とは？効果・持続期間・料金相場",
+          "purpose": "初心者向け総合ガイド",
+          "priority": 1
+        },
+        {
+          "role": "部位別（涙袋）",
+          "title_example": "涙袋ヒアルロン酸注射｜自然な仕上がりのポイント",
+          "purpose": "涙袋形成の詳細",
+          "priority": 2
+        },
+        {
+          "role": "部位別（鼻）",
+          "title_example": "鼻ヒアルロン酸注射｜鼻筋を高くする効果と持続期間",
+          "purpose": "鼻形成の詳細",
+          "priority": 3
+        },
+        {
+          "role": "失敗例・リスク",
+          "title_example": "ヒアルロン酸注射の失敗例｜しこり・血流障害のリスク",
+          "purpose": "リスク理解と予防",
+          "priority": 4
+        }
+      ]
+    }
+  ],
+  
+  "article_generation_rules": {
+    "role_assignment": "カテゴリ内の記事ロールから優先順位順に選択",
+    "differentiation_check": [
+      "同カテゴリ内の既存記事との役割重複チェック",
+      "構成テンプレートの完全一致を避ける",
+      "検索意図を1つに絞る"
+    ],
+    "quality_criteria": [
+      "実体験風ではなく判断・分析・比較を重視",
+      "根拠を構造的に提示",
+      "SEO用文章に見える表現を避ける"
+    ],
+    "forbidden_patterns": [
+      "おすすめ◯選の乱発",
+      "単なる要約・言い換え記事",
+      "他記事との8割以上の重複"
+    ]
+  },
+  
+  "internal_link_strategy": {
+    "hierarchy": "トップ → カテゴリ（SEOハブ） → 主要記事（エース） → 補足記事",
+    "rules": [
+      "記事 → 記事の横断リンクは最小限",
+      "原則：記事 → カテゴリ → 他記事",
+      "アンカーテキストは内容が分かる文言のみ"
+    ],
+    "forbidden": [
+      "「こちら」「詳しくはこちら」",
+      "過剰な内部リンク"
+    ]
+  },
+  
+  "posting_schedule": {
+    "frequency": "週2-3回（火・木・土の10:00）",
+    "category_rotation": "1カテゴリを10-30記事で完成させてから次へ",
+    "current_category": "medical-hair-removal",
+    "progress_tracking": true
+  }
+}
