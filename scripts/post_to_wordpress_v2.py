@@ -75,6 +75,8 @@ class WordPressPublisher:
             return category_id
         else:
             print(f"✗ カテゴリ作成失敗: {category_name}")
+            print(f"  ステータスコード: {response.status_code}")
+            print(f"  レスポンス: {response.text[:500]}")
             return None
     
     def create_internal_links(self, article_data):
