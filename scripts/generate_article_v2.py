@@ -45,7 +45,7 @@ class SEOArticleGenerator:
             json.dump(self.history, f, ensure_ascii=False, indent=2)
     
     def get_current_category(self):
-        """現在のカテゴリを取得"""
+        """現在のカテゴリを取得（ローテーション方式）"""
         current_slug = self.history.get('current_category', 'medical-hair-removal')
         
         for category in self.seo_design['categories']:
@@ -53,6 +53,18 @@ class SEOArticleGenerator:
                 return category
         
         return self.seo_design['categories'][0]
+    
+    def switch_to_next_category_rotation(self):
+        """次のカテゴリにローテーション（毎回切り替え）"""
+        current_slug = self.history['current_category']
+        categories = self.seo_design['categories']
+        
+        for i, cat in enumerate(categories):
+            if cat['slug'] == current_slug:
+                next_index = (i + 1) % len(categories)
+                self.history['current_category'] = categories[next_index]['slug']
+                print(f"→ 次のカテゴリ: {categories[next_index]['name']}")
+                return
     
     def get_next_article_role(self, category):
         """次に生成する記事の役割を取得"""
@@ -190,6 +202,9 @@ class SEOArticleGenerator:
         role_key = f"{role['role']}_{role['priority']}"
         self.history['category_progress'][category_slug]['completed_roles'].append(role_key)
         self.history['category_progress'][category_slug]['article_count'] += 1
+        
+        # 次回のためにカテゴリをローテーション
+        self.switch_to_next_category_rotation()
         
         # 履歴を保存
         self.save_history()
