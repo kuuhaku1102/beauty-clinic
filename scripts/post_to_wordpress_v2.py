@@ -48,10 +48,10 @@ class WordPressPublisher:
         """カテゴリを取得または作成"""
         category_name = self.category_mapping.get(category_slug, '美容コラム')
         
-        # 既存カテゴリを検索
+        # 既存カテゴリを検索（全件取得）
         response = requests.get(
             f"{self.api_base}/categories",
-            params={'search': category_name},
+            params={'per_page': 100},  # 最大100件取得
             headers=self.auth_header
         )
         
@@ -61,8 +61,12 @@ class WordPressPublisher:
                 if cat['name'] == category_name:
                     print(f"✓ カテゴリ取得: {category_name} (ID: {cat['id']})")
                     return cat['id']
+        else:
+            print(f"⚠ カテゴリ検索失敗: {response.status_code}")
         
-        # カテゴリを新規作成
+        # 既存カテゴリが見つからない場合、新規作成
+        print(f"⚠ カテゴリが見つからないため、新規作成します: {category_name}")
+        
         response = requests.post(
             f"{self.api_base}/categories",
             headers=self.auth_header,
