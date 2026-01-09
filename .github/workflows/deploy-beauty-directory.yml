@@ -38,7 +38,7 @@ jobs:
           # ✔ beauty-directory テーマフォルダにアップロード
           remote_path: "public_html/www.flat-top.jp/wp-content/themes/beauty-directory/"
 
-          sftp_only: true
+          sftp_only: false
           delete_remote_files: false
           
           # 除外ファイル・ディレクトリ
