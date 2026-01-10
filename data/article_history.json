@@ -62,9 +62,18 @@
       "generated_at": "2026-01-10T13:42:21.604801",
       "word_count": 4242,
       "quality_score": 54
+    },
+    {
+      "title": "1. 美肌治療のレーザー治療を徹底比較｜初心者から決裁者までわかる選び方ガイド  ",
+      "category": "skin-treatment",
+      "role": "レーザー治療",
+      "priority": 2,
+      "generated_at": "2026-01-10T16:50:50.241669",
+      "word_count": 5531,
+      "quality_score": 52
     }
   ],
-  "current_category": "skin-treatment",
+  "current_category": "botox-injection",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -82,9 +91,10 @@
     },
     "skin-treatment": {
       "completed_roles": [
-        "基礎知識（エース記事）_1"
+        "基礎知識（エース記事）_1",
+        "レーザー治療_2"
       ],
-      "article_count": 1
+      "article_count": 2
     },
     "botox-injection": {
       "completed_roles": [
