@@ -2,9 +2,12 @@ name: Auto Blog Post v3.0 - 6 Steps SEO
 
 on:
   schedule:
-    - cron: '0 1 * * 2,4,6'  # UTC 1:00 = JST 10:00 (火・木・土)
+    - cron: '0 1 * * 2,4,6'
   
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   generate-and-post:
