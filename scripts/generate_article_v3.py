@@ -294,7 +294,6 @@ class SEOArticleGeneratorV3:
 - まとめ（結論・次の行動）を作る
 - 見出しの重複・順序の破綻を修正
 - 箇条書きの粒度を整える
-- 内部リンクを入れる場所に [内部リンク候補: ○○] とタグを置く
 
 # 出力（Markdown）
 # {title}
@@ -391,19 +390,17 @@ class SEOArticleGeneratorV3:
 - サブKW：{category['name']}, クリニック, 選び方, 料金, 効果
 
 # タスク
-1) title案 5個（28〜32文字目安）
-2) meta description案 3個（80〜120文字目安）
+1) title案 5個（28～32文字目安）
+2) meta description案 3個（80～120文字目安）
 3) FAQ 5個（記事内容と一致）
 4) FAQ schema用のQ&A文（JSON-LD）
-5) 内部リンク候補（3〜5個のリンク先テーマ）
 
 # 出力（JSON）
 {{
   "titles": [],
   "descriptions": [],
   "faqs": [{{"q":"...","a":"..."}}],
-  "faq_schema_jsonld": {{}},
-  "internal_link_topics": []
+  "faq_schema_jsonld": {{}}
 }}
 """
         
