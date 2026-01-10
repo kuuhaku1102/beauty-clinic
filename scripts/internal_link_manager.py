@@ -163,15 +163,29 @@ class InternalLinkManager:
             
             # キーワードの最初の出現箇所にリンクを挿入
             # ただし、すでにリンクになっている箇所は避ける
-            pattern = re.compile(r'(?<!<a[^>]*>)(' + re.escape(keyword) + r')(?![^<]*</a>)', re.IGNORECASE)
+            # 正規表現をシンプルにして、リンク内を避ける
+            pattern = re.compile(r'\b(' + re.escape(keyword) + r')\b', re.IGNORECASE)
             
-            # 最初の1箇所だけリンクに変換
-            match = pattern.search(modified_content)
-            if match:
+            # 最初の1箇所だけリンクに変換（すでに<a>タグ内にある場合はスキップ）
+            matches = list(pattern.finditer(modified_content))
+            for match in matches:
+                # マッチ位置が<a>タグ内かチェック
+                start_pos = match.start()
+                # その位置より前に最後の<a>と</a>を探す
+                before_text = modified_content[:start_pos]
+                last_a_open = before_text.rfind('<a ')
+                last_a_close = before_text.rfind('</a>')
+                
+                # <a>の後に</a>がない場合はリンク内なのでスキップ
+                if last_a_open > last_a_close:
+                    continue
+                
+                # リンク挿入
                 link_html = f'<a href="{article["url"]}" class="internal-link">{match.group(1)}</a>'
-                modified_content = pattern.sub(link_html, modified_content, count=1)
+                modified_content = modified_content[:match.start()] + link_html + modified_content[match.end():]
                 inserted_count += 1
                 print(f"  → リンク挿入: 「{keyword}」→「{article['title']}」")
+                break  # 最初の1箇所だけ
         
         if inserted_count > 0:
             print(f"✓ {inserted_count}個の内部リンクを挿入しました")
