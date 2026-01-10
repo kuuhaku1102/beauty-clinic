@@ -22,7 +22,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php 
+// クリニック詳細ページの場合は手動でクラスを設定
+$clinic_id = get_query_var('clinic_id');
+if ($clinic_id) {
+    echo 'class="clinic-detail-page"';
+} else {
+    body_class();
+}
+?>>
 <header class="bd-header">
   <div class="bd-header-inner">
     <div>
