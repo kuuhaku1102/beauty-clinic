@@ -13,6 +13,7 @@ import requests
 import base64
 import re
 from datetime import datetime
+from internal_link_manager import InternalLinkManager
 
 
 class WordPressPublisher:
@@ -26,6 +27,9 @@ class WordPressPublisher:
         
         self.api_base = f"{self.site_url}/wp-json/wp/v2"
         self.auth_header = self._create_auth_header()
+        
+        # 内部リンクマネージャー
+        self.link_manager = InternalLinkManager()
         
         # カテゴリマッピング
         self.category_mapping = {
@@ -182,6 +186,11 @@ class WordPressPublisher:
         
         # MarkdownをHTMLに変換
         content = self.markdown_to_html(content)
+        
+        # 既存記事への内部リンクを自動挿入
+        print("\n[内部リンク自動挿入]")
+        content = self.link_manager.insert_internal_links(content, article_data, max_links=5)
+        
         category_slug = article_data['category']
         category_name = article_data['category_name']
         
@@ -261,6 +270,17 @@ class WordPressPublisher:
             print(f"  タイトル: {post['title']['rendered']}")
             print(f"  URL: {post['link']}")
             print(f"  ID: {post['id']}")
+            
+            # 内部リンクデータベースに追加
+            self.link_manager.add_article(article_data, post['link'], post['id'])
+            
+            # 統計情報を表示
+            stats = self.link_manager.get_stats()
+            print(f"\n[内部リンクDB統計]")
+            print(f"  総記事数: {stats['total_articles']}件")
+            for cat, count in stats['by_category'].items():
+                print(f"  - {cat}: {count}件")
+            
             return post
         else:
             print(f"✗ 投稿失敗")
