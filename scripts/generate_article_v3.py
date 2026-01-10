@@ -88,7 +88,7 @@ class SEOArticleGeneratorV3:
                 return
     
     def get_next_article_role(self, category):
-        """次に生成する記事の役割を取得"""
+        """次に生成する記事の役割を取得（無制限ループ）"""
         category_slug = category['slug']
         
         if category_slug not in self.history['category_progress']:
@@ -100,10 +100,16 @@ class SEOArticleGeneratorV3:
         progress = self.history['category_progress'][category_slug]
         completed_roles = set(progress['completed_roles'])
         
+        # まず未完了の役割を探す
         for role in category['article_roles']:
             role_key = f"{role['role']}_{role['priority']}"
             if role_key not in completed_roles:
                 return role
+        
+        # すべての役割が完了している場合は、最初からループ
+        # 優先順位が最も高い（priority=1）の役割を返す
+        if category['article_roles']:
+            return category['article_roles'][0]
         
         return None
     
@@ -428,8 +434,10 @@ class SEOArticleGeneratorV3:
         category = self.get_current_category()
         role = self.get_next_article_role(category)
         
+        # 記事数制限を無効化：常に記事を生成する
+        # roleがNoneの場合は、次のカテゴリーに移動
         if role is None:
-            print(f"✓ カテゴリ「{category['name']}」の記事が完了しました")
+            print(f"✓ カテゴリ「{category['name']}」の全役割が完了、次のカテゴリーへ")
             self.switch_to_next_category_rotation()
             self.save_history()
             category = self.get_current_category()
