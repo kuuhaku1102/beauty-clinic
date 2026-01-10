@@ -53,9 +53,18 @@
       "generated_at": "2026-01-10T13:10:35.713885",
       "word_count": 5213,
       "quality_score": 53
+    },
+    {
+      "title": "1. 二重整形の埋没法詳細｜特徴から失敗回避まで初心者にもわかりやすく解説  ",
+      "category": "double-eyelid-surgery",
+      "role": "埋没法詳細",
+      "priority": 2,
+      "generated_at": "2026-01-10T13:42:21.604801",
+      "word_count": 4242,
+      "quality_score": 54
     }
   ],
-  "current_category": "double-eyelid-surgery",
+  "current_category": "skin-treatment",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -66,9 +75,10 @@
     },
     "double-eyelid-surgery": {
       "completed_roles": [
-        "基礎知識（エース記事）_1"
+        "基礎知識（エース記事）_1",
+        "埋没法詳細_2"
       ],
-      "article_count": 1
+      "article_count": 2
     },
     "skin-treatment": {
       "completed_roles": [
