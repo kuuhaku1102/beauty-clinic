@@ -17,9 +17,18 @@
       "generated_at": "2026-01-10T10:56:37.755056",
       "word_count": 4833,
       "quality_score": 53
+    },
+    {
+      "title": "1. 美肌治療の基礎知識と失敗を避ける選び方ガイド【初心者向け】",
+      "category": "skin-treatment",
+      "role": "基礎知識（エース記事）",
+      "priority": 1,
+      "generated_at": "2026-01-10T12:19:52.001437",
+      "word_count": 4932,
+      "quality_score": 52
     }
   ],
-  "current_category": "skin-treatment",
+  "current_category": "botox-injection",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -28,6 +37,12 @@
       "article_count": 1
     },
     "double-eyelid-surgery": {
+      "completed_roles": [
+        "基礎知識（エース記事）_1"
+      ],
+      "article_count": 1
+    },
+    "skin-treatment": {
       "completed_roles": [
         "基礎知識（エース記事）_1"
       ],
