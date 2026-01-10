@@ -26,9 +26,18 @@
       "generated_at": "2026-01-10T12:19:52.001437",
       "word_count": 4932,
       "quality_score": 52
+    },
+    {
+      "title": "1. ボトックス注射の基礎知識と失敗回避ガイド｜初心者から決裁者まで役立つ選び方",
+      "category": "botox-injection",
+      "role": "基礎知識（エース記事）",
+      "priority": 1,
+      "generated_at": "2026-01-10T12:47:13.103847",
+      "word_count": 4185,
+      "quality_score": 54
     }
   ],
-  "current_category": "botox-injection",
+  "current_category": "hyaluronic-acid",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -43,6 +52,12 @@
       "article_count": 1
     },
     "skin-treatment": {
+      "completed_roles": [
+        "基礎知識（エース記事）_1"
+      ],
+      "article_count": 1
+    },
+    "botox-injection": {
       "completed_roles": [
         "基礎知識（エース記事）_1"
       ],
