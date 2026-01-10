@@ -11,6 +11,7 @@ import os
 import json
 import requests
 import base64
+import re
 from datetime import datetime
 
 
@@ -83,14 +84,109 @@ class WordPressPublisher:
             print(f"  レスポンス: {response.text[:500]}")
             return None
     
+    def markdown_to_html(self, markdown_text):
+        """シンプルMarkdownをHTMLに変換"""
+        html = markdown_text
+        
+        # H1を削除（タイトルは別途処理）
+        html = re.sub(r'^# .+$', '', html, flags=re.MULTILINE)
+        
+        # H2を変換
+        html = re.sub(r'^## (.+)$', r'<h2>\1</h2>', html, flags=re.MULTILINE)
+        
+        # H3を変換
+        html = re.sub(r'^### (.+)$', r'<h3>\1</h3>', html, flags=re.MULTILINE)
+        
+        # H4を変換
+        html = re.sub(r'^#### (.+)$', r'<h4>\1</h4>', html, flags=re.MULTILINE)
+        
+        # 箇条書きを変換（リスト）
+        # 複数行の箇条書きをグループ化
+        lines = html.split('\n')
+        in_list = False
+        result_lines = []
+        
+        for line in lines:
+            if re.match(r'^[-*+] ', line):
+                if not in_list:
+                    result_lines.append('<ul>')
+                    in_list = True
+                # 箇条書きの内容を抽出
+                item = re.sub(r'^[-*+] ', '', line)
+                result_lines.append(f'<li>{item}</li>')
+            else:
+                if in_list:
+                    result_lines.append('</ul>')
+                    in_list = False
+                result_lines.append(line)
+        
+        if in_list:
+            result_lines.append('</ul>')
+        
+        html = '\n'.join(result_lines)
+        
+        # 番号付きリストを変換
+        lines = html.split('\n')
+        in_ol = False
+        result_lines = []
+        
+        for line in lines:
+            if re.match(r'^\d+\. ', line):
+                if not in_ol:
+                    result_lines.append('<ol>')
+                    in_ol = True
+                item = re.sub(r'^\d+\. ', '', line)
+                result_lines.append(f'<li>{item}</li>')
+            else:
+                if in_ol:
+                    result_lines.append('</ol>')
+                    in_ol = False
+                result_lines.append(line)
+        
+        if in_ol:
+            result_lines.append('</ol>')
+        
+        html = '\n'.join(result_lines)
+        
+        # 太字を変換
+        html = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', html)
+        html = re.sub(r'__(.+?)__', r'<strong>\1</strong>', html)
+        
+        # 斜体を変換
+        html = re.sub(r'\*(.+?)\*', r'<em>\1</em>', html)
+        html = re.sub(r'_(.+?)_', r'<em>\1</em>', html)
+        
+        # 段落をpタグで囲む（空行で区切られたテキスト）
+        paragraphs = html.split('\n\n')
+        result_paragraphs = []
+        
+        for para in paragraphs:
+            para = para.strip()
+            if para and not para.startswith('<h') and not para.startswith('<ul') and not para.startswith('</ul') and not para.startswith('<ol') and not para.startswith('</ol') and not para.startswith('<li'):
+                # 複数行をbrタグで結合
+                para = para.replace('\n', '<br>\n')
+                result_paragraphs.append(f'<p>{para}</p>')
+            else:
+                result_paragraphs.append(para)
+        
+        html = '\n\n'.join(result_paragraphs)
+        
+        # 余分な空行を削除
+        html = re.sub(r'\n{3,}', '\n\n', html)
+        
+        return html
+    
     def create_internal_links(self, article_data):
         """内部リンクを追加"""
         content = article_data['content']
+        
+        # MarkdownをHTMLに変換
+        content = self.markdown_to_html(content)
         category_slug = article_data['category']
         category_name = article_data['category_name']
         
         # カテゴリページへのリンクを追加
-        category_link = f'<p class="internal-link-box">📚 <a href="{self.site_url}/category/{category_slug}/">「{category_name}」の記事一覧を見る</a></p>'
+        category_link = f'<div class="internal-link-box"><p>📚 <a href="{self.site_url}/category/{category_slug}/">「{category_name}」の記事一覧を見る</a></p></div>'
         
         # コンテンツの最後に追加
         content_with_links = content + '\n\n' + category_link
