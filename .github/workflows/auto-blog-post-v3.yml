@@ -1,8 +1,8 @@
-name: Auto Blog Post v2.0 - SEO Compliant
+name: Auto Blog Post v3.0 - 6 Steps SEO
 
 on:
   schedule:
-    - cron: '0 1 * * 2,4,6'  # UTC 1:00 = JST 10:00 (火・木・土 )
+    - cron: '0 1 * * 2,4,6'  # UTC 1:00 = JST 10:00 (火・木・土)
   
   workflow_dispatch:
 
@@ -23,7 +23,7 @@ jobs:
         run: |
           pip install openai requests
       
-      - name: Generate and post article (SEO v2.0)
+      - name: Generate and post article (SEO v3.0 - 6 Steps)
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           WP_SITE_URL: ${{ secrets.WP_SITE_URL }}
@@ -31,20 +31,20 @@ jobs:
           WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
         run: |
           cd scripts
-          python auto_blog_v2.py
+          python auto_blog_v3.py
       
       - name: Commit and push article data
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add data/ seo_category_design.json
-          git diff --quiet && git diff --staged --quiet || git commit -m "Auto: SEO記事生成 [$(date +'%Y-%m-%d %H:%M:%S')]"
+          git diff --quiet && git diff --staged --quiet || git commit -m "Auto: SEO記事生成 v3.0 [$(date +'%Y-%m-%d %H:%M:%S')]"
           git push
         continue-on-error: true
       
       - name: Upload article artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: seo-articles-${{ github.run_number }}
+          name: seo-articles-v3-${{ github.run_number }}
           path: data/articles/
           retention-days: 90
