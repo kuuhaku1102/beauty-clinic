@@ -35,9 +35,18 @@
       "generated_at": "2026-01-10T12:47:13.103847",
       "word_count": 4185,
       "quality_score": 54
+    },
+    {
+      "title": "1. ヒアルロン酸注射の基礎知識｜初心者が押さえるポイントと失敗回避法  ",
+      "category": "hyaluronic-acid",
+      "role": "基礎知識（エース記事）",
+      "priority": 1,
+      "generated_at": "2026-01-10T12:51:22.855372",
+      "word_count": 4794,
+      "quality_score": 54
     }
   ],
-  "current_category": "hyaluronic-acid",
+  "current_category": "medical-hair-removal",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -58,6 +67,12 @@
       "article_count": 1
     },
     "botox-injection": {
+      "completed_roles": [
+        "基礎知識（エース記事）_1"
+      ],
+      "article_count": 1
+    },
+    "hyaluronic-acid": {
       "completed_roles": [
         "基礎知識（エース記事）_1"
       ],
