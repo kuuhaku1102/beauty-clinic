@@ -108,36 +108,42 @@
           "role": "基礎知識（エース記事）",
           "title_example": "二重整形とは？埋没法・切開法の違いと料金相場",
           "purpose": "初心者向け総合ガイド",
+          "differentiation": "網羅的だが分かりやすさ重視",
           "priority": 1
         },
         {
           "role": "埋没法詳細",
           "title_example": "埋没法のメリット・デメリット｜ダウンタイムと持続期間",
           "purpose": "埋没法を検討する読者向け",
+          "differentiation": "施術方法の詳細と実際の経過",
           "priority": 2
         },
         {
           "role": "切開法詳細",
           "title_example": "切開法の種類と選び方｜全切開・部分切開の違い",
           "purpose": "切開法を検討する読者向け",
+          "differentiation": "施術方法の比較と選択基準",
           "priority": 3
         },
         {
           "role": "クリニック選び",
           "title_example": "二重整形クリニックの選び方｜失敗しない5つのポイント",
           "purpose": "クリニック比較の判断基準",
+          "differentiation": "独自の評価軸・判断基準",
           "priority": 4
         },
         {
           "role": "ダウンタイム",
           "title_example": "二重整形のダウンタイム｜腫れ・内出血を早く治す方法",
           "purpose": "術後の不安解消",
+          "differentiation": "具体的なケア方法と期間の目安",
           "priority": 5
         },
         {
           "role": "失敗例・リスク",
           "title_example": "二重整形の失敗例とリスク｜左右差・食い込みの原因",
           "purpose": "リスク理解と予防",
+          "differentiation": "実例ベースの注意喚起",
           "priority": 6
         }
       ]
@@ -154,30 +160,35 @@
           "role": "基礎知識（エース記事）",
           "title_example": "美肌治療の種類と効果｜シミ・毛穴・ニキビ跡に効く施術",
           "purpose": "初心者向け総合ガイド",
+          "differentiation": "網羅的だが分かりやすさ重視",
           "priority": 1
         },
         {
           "role": "レーザー治療",
           "title_example": "ピコレーザーとは？シミ取り効果とダウンタイム",
           "purpose": "レーザー治療の詳細",
+          "differentiation": "技術的な違いを分かりやすく",
           "priority": 2
         },
         {
           "role": "光治療",
           "title_example": "フォトフェイシャルの効果｜IPL治療の仕組みと回数",
           "purpose": "光治療の詳細",
+          "differentiation": "レーザーとの違いを明確化",
           "priority": 3
         },
         {
           "role": "ピーリング",
           "title_example": "ケミカルピーリングの種類と効果｜ニキビ跡・毛穴への効果",
           "purpose": "ピーリング治療の詳細",
+          "differentiation": "種類別の効果と選択基準",
           "priority": 4
         },
         {
           "role": "ダーマペン",
           "title_example": "ダーマペンとは？ニキビ跡・毛穴への効果と痛み",
           "purpose": "ダーマペン治療の詳細",
+          "differentiation": "施術の具体的な流れと効果",
           "priority": 5
         }
       ]
@@ -194,24 +205,28 @@
           "role": "基礎知識（エース記事）",
           "title_example": "ボトックス注射とは？効果・持続期間・料金相場",
           "purpose": "初心者向け総合ガイド",
+          "differentiation": "網羅的だが分かりやすさ重視",
           "priority": 1
         },
         {
           "role": "部位別（額・眉間）",
           "title_example": "額・眉間のボトックス注射｜表情ジワへの効果と注意点",
           "purpose": "部位別の詳細情報",
+          "differentiation": "部位ごとの詳細情報",
           "priority": 2
         },
         {
           "role": "部位別（エラ）",
           "title_example": "エラボトックスの効果｜小顔効果と持続期間",
           "purpose": "エラ張り改善の詳細",
+          "differentiation": "小顔効果のメカニズム",
           "priority": 3
         },
         {
           "role": "失敗例・リスク",
           "title_example": "ボトックス注射の失敗例｜表情が不自然になる原因",
           "purpose": "リスク理解と予防",
+          "differentiation": "実例ベースの注意喚起",
           "priority": 4
         }
       ]
@@ -228,24 +243,28 @@
           "role": "基礎知識（エース記事）",
           "title_example": "ヒアルロン酸注射とは？効果・持続期間・料金相場",
           "purpose": "初心者向け総合ガイド",
+          "differentiation": "網羅的だが分かりやすさ重視",
           "priority": 1
         },
         {
           "role": "部位別（涙袋）",
           "title_example": "涙袋ヒアルロン酸注射｜自然な仕上がりのポイント",
           "purpose": "涙袋形成の詳細",
+          "differentiation": "部位ごとの詳細情報",
           "priority": 2
         },
         {
           "role": "部位別（鼻）",
           "title_example": "鼻ヒアルロン酸注射｜鼻筋を高くする効果と持続期間",
           "purpose": "鼻形成の詳細",
+          "differentiation": "施術方法と仕上がりのバランス",
           "priority": 3
         },
         {
           "role": "失敗例・リスク",
           "title_example": "ヒアルロン酸注射の失敗例｜しこり・血流障害のリスク",
           "purpose": "リスク理解と予防",
+          "differentiation": "実例ベースの注意喚起",
           "priority": 4
         }
       ]
