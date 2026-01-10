@@ -1,0 +1,22 @@
+{
+  "articles": [
+    {
+      "title": "1. 医療脱毛の基礎知識｜失敗を避ける選び方と注意点まとめ  ",
+      "category": "medical-hair-removal",
+      "role": "基礎知識（エース記事）",
+      "priority": 1,
+      "generated_at": "2026-01-10T08:50:23.934736",
+      "word_count": 4879,
+      "quality_score": 53
+    }
+  ],
+  "current_category": "double-eyelid-surgery",
+  "category_progress": {
+    "medical-hair-removal": {
+      "completed_roles": [
+        "基礎知識（エース記事）_1"
+      ],
+      "article_count": 1
+    }
+  }
+}
