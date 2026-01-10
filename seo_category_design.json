@@ -4,7 +4,6 @@
     "posting_frequency": "週2-3回（火・木・土）",
     "article_lifecycle": "10-30記事でカテゴリ完成 → 次カテゴリへ"
   },
-  
   "categories": [
     {
       "id": 1,
@@ -268,9 +267,163 @@
           "priority": 4
         }
       ]
+    },
+    {
+      "id": 6,
+      "slug": "diet-slimming",
+      "name": "ダイエット・痩身",
+      "description": "医療ダイエット・痩身治療の基礎知識と効果",
+      "search_intent": "医療ダイエットや痩身治療を検討している人が知りたい情報",
+      "target_articles": 15,
+      "article_roles": [
+        {
+          "role": "基礎知識（エース記事）",
+          "title_example": "医療ダイエットとは？GLP-1・脂肪吸引・脂肪冷却の違いと効果",
+          "purpose": "初心者向け総合ガイド",
+          "differentiation": "網羅的だが分かりやすさ重視",
+          "priority": 1
+        },
+        {
+          "role": "GLP-1ダイエット",
+          "title_example": "GLP-1ダイエット（リベルサス・スルリム）の効果と副作用",
+          "purpose": "GLP-1ダイエットを検討する読者向け",
+          "differentiation": "薬剤別の詳細情報と実際の効果",
+          "priority": 2
+        },
+        {
+          "role": "脂肪吸引",
+          "title_example": "脂肪吸引の効果とリスク｜ダウンタイムと料金相場",
+          "purpose": "脂肪吸引を検討する読者向け",
+          "differentiation": "部位別の詳細と失敗回避",
+          "priority": 3
+        },
+        {
+          "role": "脂肪冷却",
+          "title_example": "脂肪冷却（クールスカルプティング）の効果｜回数と料金",
+          "purpose": "脂肪冷却を検討する読者向け",
+          "differentiation": "施術の仕組みと効果の出方",
+          "priority": 4
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "slug": "face-lift",
+      "name": "リフトアップ・たるみ治療",
+      "description": "糸リフト・ハイフ・ウルセラなどのリフトアップ治療",
+      "search_intent": "顔のたるみやリフトアップ治療を検討している人が知りたい情報",
+      "target_articles": 12,
+      "article_roles": [
+        {
+          "role": "基礎知識（エース記事）",
+          "title_example": "リフトアップ治療の種類と効果｜糸リフト・ハイフ・ウルセラの違い",
+          "purpose": "初心者向け総合ガイド",
+          "differentiation": "網羅的だが分かりやすさ重視",
+          "priority": 1
+        },
+        {
+          "role": "糸リフト",
+          "title_example": "糸リフトの効果と持続期間｜ダウンタイムと料金相場",
+          "purpose": "糸リフトを検討する読者向け",
+          "differentiation": "糸の種類と選び方",
+          "priority": 2
+        },
+        {
+          "role": "ハイフ・ウルセラ",
+          "title_example": "ハイフ（HIFU）とウルセラの違い｜効果と痛みを比較",
+          "purpose": "ハイフ系治療を検討する読者向け",
+          "differentiation": "機器の違いと選択基準",
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "slug": "dark-circles-treatment",
+      "name": "クマ取り・目元治療",
+      "description": "目の下のクマ取り治療の基礎知識と施術解説",
+      "search_intent": "目の下のクマ治療を検討している人が知りたい情報",
+      "target_articles": 10,
+      "article_roles": [
+        {
+          "role": "基礎知識（エース記事）",
+          "title_example": "目の下のクマ取り治療とは？種類別の効果と料金相場",
+          "purpose": "初心者向け総合ガイド",
+          "differentiation": "網羅的だが分かりやすさ重視",
+          "priority": 1
+        },
+        {
+          "role": "クマ取り再生注射",
+          "title_example": "クマ取り再生注射の効果｜ダウンタイムと持続期間",
+          "purpose": "再生注射を検討する読者向け",
+          "differentiation": "施術の詳細と実際の経過",
+          "priority": 2
+        },
+        {
+          "role": "脱脂術",
+          "title_example": "目の下の脱脂術とは？効果とリスク｜失敗しないポイント",
+          "purpose": "脱脂術を検討する読者向け",
+          "differentiation": "手術の詳細とリスク管理",
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "slug": "hyperhidrosis-treatment",
+      "name": "ワキガ・多汗症治療",
+      "description": "ワキガ・多汗症治療の基礎知識と施術解説",
+      "search_intent": "ワキガや多汗症の治療を検討している人が知りたい情報",
+      "target_articles": 10,
+      "article_roles": [
+        {
+          "role": "基礎知識（エース記事）",
+          "title_example": "ワキガ・多汗症治療の種類と効果｜ミラドライ・ビューホット・手術の違い",
+          "purpose": "初心者向け総合ガイド",
+          "differentiation": "網羅的だが分かりやすさ重視",
+          "priority": 1
+        },
+        {
+          "role": "ミラドライ",
+          "title_example": "ミラドライの効果と持続期間｜ダウンタイムと料金相場",
+          "purpose": "ミラドライを検討する読者向け",
+          "differentiation": "施術の仕組みと実際の効果",
+          "priority": 2
+        },
+        {
+          "role": "ビューホット",
+          "title_example": "ビューホットの効果｜ミラドライとの違いと選び方",
+          "purpose": "ビューホットを検討する読者向け",
+          "differentiation": "他治療との比較と選択基準",
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "slug": "teeth-whitening",
+      "name": "ホワイトニング",
+      "description": "歯のホワイトニングの基礎知識と効果",
+      "search_intent": "歯のホワイトニングを検討している人が知りたい情報",
+      "target_articles": 8,
+      "article_roles": [
+        {
+          "role": "基礎知識（エース記事）",
+          "title_example": "ホワイトニングの種類と効果｜オフィス・ホーム・セルフの違い",
+          "purpose": "初心者向け総合ガイド",
+          "differentiation": "網羅的だが分かりやすさ重視",
+          "priority": 1
+        },
+        {
+          "role": "オフィスホワイトニング",
+          "title_example": "オフィスホワイトニングの効果と持続期間｜料金相場と選び方",
+          "purpose": "オフィスホワイトニングを検討する読者向け",
+          "differentiation": "クリニック選びの判断基準",
+          "priority": 2
+        }
+      ]
     }
   ],
-  
   "article_generation_rules": {
     "role_assignment": "カテゴリ内の記事ロールから優先順位順に選択",
     "differentiation_check": [
@@ -289,7 +442,6 @@
       "他記事との8割以上の重複"
     ]
   },
-  
   "internal_link_strategy": {
     "hierarchy": "トップ → カテゴリ（SEOハブ） → 主要記事（エース） → 補足記事",
     "rules": [
@@ -302,7 +454,6 @@
       "過剰な内部リンク"
     ]
   },
-  
   "posting_schedule": {
     "frequency": "週2-3回（火・木・土の10:00）",
     "category_rotation": "1カテゴリを10-30記事で完成させてから次へ",
