@@ -71,9 +71,18 @@
       "generated_at": "2026-01-10T16:50:50.241669",
       "word_count": 5531,
       "quality_score": 52
+    },
+    {
+      "title": "1. ボトックス注射 部位別比較ガイド｜額・眉間の特徴と料金相場をわかりやすく解説  ",
+      "category": "botox-injection",
+      "role": "部位別（額・眉間）",
+      "priority": 2,
+      "generated_at": "2026-01-13T02:59:16.033679",
+      "word_count": 4810,
+      "quality_score": 53
     }
   ],
-  "current_category": "botox-injection",
+  "current_category": "hyaluronic-acid",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -98,9 +107,10 @@
     },
     "botox-injection": {
       "completed_roles": [
-        "基礎知識（エース記事）_1"
+        "基礎知識（エース記事）_1",
+        "部位別（額・眉間）_2"
       ],
-      "article_count": 1
+      "article_count": 2
     },
     "hyaluronic-acid": {
       "completed_roles": [
