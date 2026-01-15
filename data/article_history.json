@@ -80,9 +80,18 @@
       "generated_at": "2026-01-13T02:59:16.033679",
       "word_count": 4810,
       "quality_score": 53
+    },
+    {
+      "title": "1. ヒアルロン酸注射で涙袋を自然に作る方法｜部位別の選び方と失敗を避けるポイント  ",
+      "category": "hyaluronic-acid",
+      "role": "部位別（涙袋）",
+      "priority": 2,
+      "generated_at": "2026-01-15T03:01:26.629015",
+      "word_count": 4308,
+      "quality_score": 54
     }
   ],
-  "current_category": "hyaluronic-acid",
+  "current_category": "diet-slimming",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -114,9 +123,10 @@
     },
     "hyaluronic-acid": {
       "completed_roles": [
-        "基礎知識（エース記事）_1"
+        "基礎知識（エース記事）_1",
+        "部位別（涙袋）_2"
       ],
-      "article_count": 1
+      "article_count": 2
     }
   }
 }
