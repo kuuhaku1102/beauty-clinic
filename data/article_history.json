@@ -89,9 +89,18 @@
       "generated_at": "2026-01-15T03:01:26.629015",
       "word_count": 4308,
       "quality_score": 54
+    },
+    {
+      "title": "1. ダイエット・痩身の基礎知識｜初心者から決裁者まで失敗しない選び方と比較ポイント  ",
+      "category": "diet-slimming",
+      "role": "基礎知識（エース記事）",
+      "priority": 1,
+      "generated_at": "2026-01-17T02:53:40.600786",
+      "word_count": 4372,
+      "quality_score": 53
     }
   ],
-  "current_category": "diet-slimming",
+  "current_category": "face-lift",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -127,6 +136,12 @@
         "部位別（涙袋）_2"
       ],
       "article_count": 2
+    },
+    "diet-slimming": {
+      "completed_roles": [
+        "基礎知識（エース記事）_1"
+      ],
+      "article_count": 1
     }
   }
 }
