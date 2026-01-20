@@ -98,9 +98,18 @@
       "generated_at": "2026-01-17T02:53:40.600786",
       "word_count": 4372,
       "quality_score": 53
+    },
+    {
+      "title": "1. リフトアップ・たるみ治療の基礎知識｜種類と選び方をわかりやすく比較  ",
+      "category": "face-lift",
+      "role": "基礎知識（エース記事）",
+      "priority": 1,
+      "generated_at": "2026-01-20T03:04:11.087238",
+      "word_count": 5151,
+      "quality_score": 54
     }
   ],
-  "current_category": "face-lift",
+  "current_category": "dark-circles-treatment",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -138,6 +147,12 @@
       "article_count": 2
     },
     "diet-slimming": {
+      "completed_roles": [
+        "基礎知識（エース記事）_1"
+      ],
+      "article_count": 1
+    },
+    "face-lift": {
       "completed_roles": [
         "基礎知識（エース記事）_1"
       ],
