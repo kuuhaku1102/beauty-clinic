@@ -107,9 +107,18 @@
       "generated_at": "2026-01-20T03:04:11.087238",
       "word_count": 5151,
       "quality_score": 54
+    },
+    {
+      "title": "1. クマ取り・目元治療の基礎知識｜初心者から決裁者まで失敗を避ける選び方ガイド  ",
+      "category": "dark-circles-treatment",
+      "role": "基礎知識（エース記事）",
+      "priority": 1,
+      "generated_at": "2026-01-22T03:08:12.369643",
+      "word_count": 5206,
+      "quality_score": 53
     }
   ],
-  "current_category": "dark-circles-treatment",
+  "current_category": "hyperhidrosis-treatment",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -153,6 +162,12 @@
       "article_count": 1
     },
     "face-lift": {
+      "completed_roles": [
+        "基礎知識（エース記事）_1"
+      ],
+      "article_count": 1
+    },
+    "dark-circles-treatment": {
       "completed_roles": [
         "基礎知識（エース記事）_1"
       ],
