@@ -125,9 +125,18 @@
       "generated_at": "2026-01-24T02:57:31.417152",
       "word_count": 4574,
       "quality_score": 53
+    },
+    {
+      "title": "1. ホワイトニング基礎知識｜初心者も安心の選び方と失敗しないポイント  ",
+      "category": "teeth-whitening",
+      "role": "基礎知識（エース記事）",
+      "priority": 1,
+      "generated_at": "2026-01-27T03:08:27.635722",
+      "word_count": 5367,
+      "quality_score": 54
     }
   ],
-  "current_category": "teeth-whitening",
+  "current_category": "medical-hair-removal",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -183,6 +192,12 @@
       "article_count": 1
     },
     "hyperhidrosis-treatment": {
+      "completed_roles": [
+        "基礎知識（エース記事）_1"
+      ],
+      "article_count": 1
+    },
+    "teeth-whitening": {
       "completed_roles": [
         "基礎知識（エース記事）_1"
       ],
