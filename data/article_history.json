@@ -134,16 +134,26 @@
       "generated_at": "2026-01-27T03:08:27.635722",
       "word_count": 5367,
       "quality_score": 54
+    },
+    {
+      "title": "1. 医療脱毛の部位別解説｜全身の特徴とクリニック選びのポイント",
+      "category": "medical-hair-removal",
+      "role": "部位別解説（全身）",
+      "priority": 3,
+      "generated_at": "2026-01-31T03:25:01.628412",
+      "word_count": 4196,
+      "quality_score": 52
     }
   ],
-  "current_category": "medical-hair-removal",
+  "current_category": "double-eyelid-surgery",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
         "基礎知識（エース記事）_1",
-        "クリニック選びの判断基準_2"
+        "クリニック選びの判断基準_2",
+        "部位別解説（全身）_3"
       ],
-      "article_count": 2
+      "article_count": 3
     },
     "double-eyelid-surgery": {
       "completed_roles": [
