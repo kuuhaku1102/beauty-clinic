@@ -143,9 +143,18 @@
       "generated_at": "2026-01-31T03:25:01.628412",
       "word_count": 4196,
       "quality_score": 52
+    },
+    {
+      "title": "1. 二重整形の切開法詳細ガイド｜特徴と他施術法との違いを徹底比較  ",
+      "category": "double-eyelid-surgery",
+      "role": "切開法詳細",
+      "priority": 3,
+      "generated_at": "2026-02-03T03:36:55.397495",
+      "word_count": 4842,
+      "quality_score": 54
     }
   ],
-  "current_category": "double-eyelid-surgery",
+  "current_category": "skin-treatment",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -158,9 +167,10 @@
     "double-eyelid-surgery": {
       "completed_roles": [
         "基礎知識（エース記事）_1",
-        "埋没法詳細_2"
+        "埋没法詳細_2",
+        "切開法詳細_3"
       ],
-      "article_count": 2
+      "article_count": 3
     },
     "skin-treatment": {
       "completed_roles": [
