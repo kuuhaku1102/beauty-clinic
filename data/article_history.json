@@ -170,9 +170,18 @@
       "generated_at": "2026-02-07T03:28:17.657338",
       "word_count": 5376,
       "quality_score": 52
+    },
+    {
+      "title": "1. ヒアルロン酸注射「鼻」部位別の選び方と失敗回避ガイド  ",
+      "category": "hyaluronic-acid",
+      "role": "部位別（鼻）",
+      "priority": 3,
+      "generated_at": "2026-02-10T03:53:40.039540",
+      "word_count": 4658,
+      "quality_score": 53
     }
   ],
-  "current_category": "hyaluronic-acid",
+  "current_category": "diet-slimming",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -209,9 +218,10 @@
     "hyaluronic-acid": {
       "completed_roles": [
         "基礎知識（エース記事）_1",
-        "部位別（涙袋）_2"
+        "部位別（涙袋）_2",
+        "部位別（鼻）_3"
       ],
-      "article_count": 2
+      "article_count": 3
     },
     "diet-slimming": {
       "completed_roles": [
