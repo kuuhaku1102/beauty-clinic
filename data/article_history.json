@@ -179,9 +179,18 @@
       "generated_at": "2026-02-10T03:53:40.039540",
       "word_count": 4658,
       "quality_score": 53
+    },
+    {
+      "title": "1. GLP-1ダイエットの薬剤別比較ガイド｜初心者から決裁者まで知るべきポイント  ",
+      "category": "diet-slimming",
+      "role": "GLP-1ダイエット",
+      "priority": 2,
+      "generated_at": "2026-02-12T03:46:31.993490",
+      "word_count": 4769,
+      "quality_score": 53
     }
   ],
-  "current_category": "diet-slimming",
+  "current_category": "face-lift",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -225,9 +234,10 @@
     },
     "diet-slimming": {
       "completed_roles": [
-        "基礎知識（エース記事）_1"
+        "基礎知識（エース記事）_1",
+        "GLP-1ダイエット_2"
       ],
-      "article_count": 1
+      "article_count": 2
     },
     "face-lift": {
       "completed_roles": [
