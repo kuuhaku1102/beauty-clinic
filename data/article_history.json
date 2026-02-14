@@ -188,9 +188,18 @@
       "generated_at": "2026-02-12T03:46:31.993490",
       "word_count": 4769,
       "quality_score": 53
+    },
+    {
+      "title": "1. リフトアップ・たるみ治療の糸リフト完全ガイド｜種類と選び方、失敗回避のポイント  ",
+      "category": "face-lift",
+      "role": "糸リフト",
+      "priority": 2,
+      "generated_at": "2026-02-14T03:30:28.565850",
+      "word_count": 3990,
+      "quality_score": 54
     }
   ],
-  "current_category": "face-lift",
+  "current_category": "dark-circles-treatment",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -241,9 +250,10 @@
     },
     "face-lift": {
       "completed_roles": [
-        "基礎知識（エース記事）_1"
+        "基礎知識（エース記事）_1",
+        "糸リフト_2"
       ],
-      "article_count": 1
+      "article_count": 2
     },
     "dark-circles-treatment": {
       "completed_roles": [
