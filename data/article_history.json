@@ -206,9 +206,18 @@
       "generated_at": "2026-02-17T03:38:18.888180",
       "word_count": 5092,
       "quality_score": 52
+    },
+    {
+      "title": "1. ワキガ・多汗症治療にミラドライを選ぶ前に知るべき全ポイントと失敗回避法  ",
+      "category": "hyperhidrosis-treatment",
+      "role": "ミラドライ",
+      "priority": 2,
+      "generated_at": "2026-02-19T03:40:40.591549",
+      "word_count": 4243,
+      "quality_score": 53
     }
   ],
-  "current_category": "hyperhidrosis-treatment",
+  "current_category": "teeth-whitening",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -273,9 +282,10 @@
     },
     "hyperhidrosis-treatment": {
       "completed_roles": [
-        "基礎知識（エース記事）_1"
+        "基礎知識（エース記事）_1",
+        "ミラドライ_2"
       ],
-      "article_count": 1
+      "article_count": 2
     },
     "teeth-whitening": {
       "completed_roles": [
