@@ -224,17 +224,27 @@
       "generated_at": "2026-02-21T03:26:12.572732",
       "word_count": 5538,
       "quality_score": 52
+    },
+    {
+      "title": "1. 医療脱毛のVIO部位別解説｜初心者も安心の選び方と失敗回避ポイント  ",
+      "category": "medical-hair-removal",
+      "role": "部位別解説（VIO）",
+      "priority": 4,
+      "generated_at": "2026-02-24T03:39:10.473407",
+      "word_count": 5372,
+      "quality_score": 53
     }
   ],
-  "current_category": "medical-hair-removal",
+  "current_category": "double-eyelid-surgery",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
         "基礎知識（エース記事）_1",
         "クリニック選びの判断基準_2",
-        "部位別解説（全身）_3"
+        "部位別解説（全身）_3",
+        "部位別解説（VIO）_4"
       ],
-      "article_count": 3
+      "article_count": 4
     },
     "double-eyelid-surgery": {
       "completed_roles": [
