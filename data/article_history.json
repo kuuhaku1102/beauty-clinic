@@ -233,9 +233,18 @@
       "generated_at": "2026-02-24T03:39:10.473407",
       "word_count": 5372,
       "quality_score": 53
+    },
+    {
+      "title": "1. 二重整形クリニック選びのポイント｜初心者から決裁者まで失敗しない比較法  ",
+      "category": "double-eyelid-surgery",
+      "role": "クリニック選び",
+      "priority": 4,
+      "generated_at": "2026-02-26T03:36:10.120983",
+      "word_count": 4623,
+      "quality_score": 53
     }
   ],
-  "current_category": "double-eyelid-surgery",
+  "current_category": "skin-treatment",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -250,9 +259,10 @@
       "completed_roles": [
         "基礎知識（エース記事）_1",
         "埋没法詳細_2",
-        "切開法詳細_3"
+        "切開法詳細_3",
+        "クリニック選び_4"
       ],
-      "article_count": 3
+      "article_count": 4
     },
     "skin-treatment": {
       "completed_roles": [
