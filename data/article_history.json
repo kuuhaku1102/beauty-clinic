@@ -242,9 +242,18 @@
       "generated_at": "2026-02-26T03:36:10.120983",
       "word_count": 4623,
       "quality_score": 53
+    },
+    {
+      "title": "1. 美肌治療のピーリング比較ガイド｜初心者から決裁者まで知るべきポイント  ",
+      "category": "skin-treatment",
+      "role": "ピーリング",
+      "priority": 4,
+      "generated_at": "2026-02-28T03:12:58.443462",
+      "word_count": 4839,
+      "quality_score": 52
     }
   ],
-  "current_category": "skin-treatment",
+  "current_category": "botox-injection",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -268,9 +277,10 @@
       "completed_roles": [
         "基礎知識（エース記事）_1",
         "レーザー治療_2",
-        "光治療_3"
+        "光治療_3",
+        "ピーリング_4"
       ],
-      "article_count": 3
+      "article_count": 4
     },
     "botox-injection": {
       "completed_roles": [
