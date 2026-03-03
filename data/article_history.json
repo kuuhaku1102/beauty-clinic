@@ -251,9 +251,18 @@
       "generated_at": "2026-02-28T03:12:58.443462",
       "word_count": 4839,
       "quality_score": 52
+    },
+    {
+      "title": "1. ボトックス注射の失敗例・リスクを知って失敗を避けるための完全ガイド  ",
+      "category": "botox-injection",
+      "role": "失敗例・リスク",
+      "priority": 4,
+      "generated_at": "2026-03-03T03:36:14.585504",
+      "word_count": 4481,
+      "quality_score": 53
     }
   ],
-  "current_category": "botox-injection",
+  "current_category": "hyaluronic-acid",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -286,9 +295,10 @@
       "completed_roles": [
         "基礎知識（エース記事）_1",
         "部位別（額・眉間）_2",
-        "部位別（エラ）_3"
+        "部位別（エラ）_3",
+        "失敗例・リスク_4"
       ],
-      "article_count": 3
+      "article_count": 4
     },
     "hyaluronic-acid": {
       "completed_roles": [
