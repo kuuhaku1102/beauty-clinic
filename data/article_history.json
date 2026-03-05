@@ -260,9 +260,18 @@
       "generated_at": "2026-03-03T03:36:14.585504",
       "word_count": 4481,
       "quality_score": 53
+    },
+    {
+      "title": "1. ヒアルロン酸注射の失敗例とリスクを理解して安全なクリニックを選ぶ方法  ",
+      "category": "hyaluronic-acid",
+      "role": "失敗例・リスク",
+      "priority": 4,
+      "generated_at": "2026-03-05T03:31:58.297907",
+      "word_count": 4452,
+      "quality_score": 54
     }
   ],
-  "current_category": "hyaluronic-acid",
+  "current_category": "diet-slimming",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -304,9 +313,10 @@
       "completed_roles": [
         "基礎知識（エース記事）_1",
         "部位別（涙袋）_2",
-        "部位別（鼻）_3"
+        "部位別（鼻）_3",
+        "失敗例・リスク_4"
       ],
-      "article_count": 3
+      "article_count": 4
     },
     "diet-slimming": {
       "completed_roles": [
