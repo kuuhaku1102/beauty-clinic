@@ -278,9 +278,18 @@
       "generated_at": "2026-03-07T03:19:39.752284",
       "word_count": 5239,
       "quality_score": 53
+    },
+    {
+      "title": "1. リフトアップ・たるみ治療のハイフとウルセラ比較ガイド｜違いと選び方を初心者から決裁者まで解説  ",
+      "category": "face-lift",
+      "role": "ハイフ・ウルセラ",
+      "priority": 3,
+      "generated_at": "2026-03-10T03:29:06.549702",
+      "word_count": 3654,
+      "quality_score": 54
     }
   ],
-  "current_category": "face-lift",
+  "current_category": "dark-circles-treatment",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -338,9 +347,10 @@
     "face-lift": {
       "completed_roles": [
         "基礎知識（エース記事）_1",
-        "糸リフト_2"
+        "糸リフト_2",
+        "ハイフ・ウルセラ_3"
       ],
-      "article_count": 2
+      "article_count": 3
     },
     "dark-circles-treatment": {
       "completed_roles": [
