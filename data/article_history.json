@@ -287,9 +287,18 @@
       "generated_at": "2026-03-10T03:29:06.549702",
       "word_count": 3654,
       "quality_score": 54
+    },
+    {
+      "title": "1. クマ取り・目元治療の脱脂術を失敗なく選ぶ方法｜特徴・リスク・クリニック比較のポイント  ",
+      "category": "dark-circles-treatment",
+      "role": "脱脂術",
+      "priority": 3,
+      "generated_at": "2026-03-12T03:34:40.146082",
+      "word_count": 4029,
+      "quality_score": 54
     }
   ],
-  "current_category": "dark-circles-treatment",
+  "current_category": "hyperhidrosis-treatment",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -355,9 +364,10 @@
     "dark-circles-treatment": {
       "completed_roles": [
         "基礎知識（エース記事）_1",
-        "クマ取り再生注射_2"
+        "クマ取り再生注射_2",
+        "脱脂術_3"
       ],
-      "article_count": 2
+      "article_count": 3
     },
     "hyperhidrosis-treatment": {
       "completed_roles": [
