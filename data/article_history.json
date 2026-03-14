@@ -296,9 +296,18 @@
       "generated_at": "2026-03-12T03:34:40.146082",
       "word_count": 4029,
       "quality_score": 54
+    },
+    {
+      "title": "1. ワキガ・多汗症治療「ビューホット」と他施術の違いを徹底比較【初心者から決裁者まで】",
+      "category": "hyperhidrosis-treatment",
+      "role": "ビューホット",
+      "priority": 3,
+      "generated_at": "2026-03-14T03:28:47.082734",
+      "word_count": 2237,
+      "quality_score": 54
     }
   ],
-  "current_category": "hyperhidrosis-treatment",
+  "current_category": "teeth-whitening",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -372,9 +381,10 @@
     "hyperhidrosis-treatment": {
       "completed_roles": [
         "基礎知識（エース記事）_1",
-        "ミラドライ_2"
+        "ミラドライ_2",
+        "ビューホット_3"
       ],
-      "article_count": 2
+      "article_count": 3
     },
     "teeth-whitening": {
       "completed_roles": [
