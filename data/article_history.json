@@ -305,9 +305,18 @@
       "generated_at": "2026-03-14T03:28:47.082734",
       "word_count": 2237,
       "quality_score": 54
+    },
+    {
+      "title": "1. ホワイトニング基礎知識｜初心者から決裁者まで失敗しない選び方と注意点  ",
+      "category": "teeth-whitening",
+      "role": "基礎知識（エース記事）",
+      "priority": 1,
+      "generated_at": "2026-03-17T03:36:47.914321",
+      "word_count": 4999,
+      "quality_score": 54
     }
   ],
-  "current_category": "teeth-whitening",
+  "current_category": "medical-hair-removal",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -389,9 +398,10 @@
     "teeth-whitening": {
       "completed_roles": [
         "基礎知識（エース記事）_1",
-        "オフィスホワイトニング_2"
+        "オフィスホワイトニング_2",
+        "基礎知識（エース記事）_1"
       ],
-      "article_count": 2
+      "article_count": 3
     }
   }
 }
