@@ -314,18 +314,28 @@
       "generated_at": "2026-03-17T03:36:47.914321",
       "word_count": 4999,
       "quality_score": 54
+    },
+    {
+      "title": "1. 医療脱毛の顔脱毛部位別解説｜失敗を避ける選び方と注意点  ",
+      "category": "medical-hair-removal",
+      "role": "部位別解説（顔）",
+      "priority": 5,
+      "generated_at": "2026-03-19T03:42:59.456153",
+      "word_count": 4365,
+      "quality_score": 54
     }
   ],
-  "current_category": "medical-hair-removal",
+  "current_category": "double-eyelid-surgery",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
         "基礎知識（エース記事）_1",
         "クリニック選びの判断基準_2",
         "部位別解説（全身）_3",
-        "部位別解説（VIO）_4"
+        "部位別解説（VIO）_4",
+        "部位別解説（顔）_5"
       ],
-      "article_count": 4
+      "article_count": 5
     },
     "double-eyelid-surgery": {
       "completed_roles": [
