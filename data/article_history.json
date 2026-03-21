@@ -323,9 +323,18 @@
       "generated_at": "2026-03-19T03:42:59.456153",
       "word_count": 4365,
       "quality_score": 54
+    },
+    {
+      "title": "1. 二重整形のダウンタイムを理解して失敗を避ける｜初心者から決裁者までの選び方ガイド  ",
+      "category": "double-eyelid-surgery",
+      "role": "ダウンタイム",
+      "priority": 5,
+      "generated_at": "2026-03-21T03:25:40.184853",
+      "word_count": 5244,
+      "quality_score": 53
     }
   ],
-  "current_category": "double-eyelid-surgery",
+  "current_category": "skin-treatment",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -342,9 +351,10 @@
         "基礎知識（エース記事）_1",
         "埋没法詳細_2",
         "切開法詳細_3",
-        "クリニック選び_4"
+        "クリニック選び_4",
+        "ダウンタイム_5"
       ],
-      "article_count": 4
+      "article_count": 5
     },
     "skin-treatment": {
       "completed_roles": [
