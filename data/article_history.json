@@ -332,9 +332,18 @@
       "generated_at": "2026-03-21T03:25:40.184853",
       "word_count": 5244,
       "quality_score": 53
+    },
+    {
+      "title": "1. 美肌治療ダーマペンの具体的な施術手順と効果｜初心者からクリニック選びまで完全ガイド  ",
+      "category": "skin-treatment",
+      "role": "ダーマペン",
+      "priority": 5,
+      "generated_at": "2026-03-24T03:38:29.662857",
+      "word_count": 5134,
+      "quality_score": 52
     }
   ],
-  "current_category": "skin-treatment",
+  "current_category": "botox-injection",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -361,9 +370,10 @@
         "基礎知識（エース記事）_1",
         "レーザー治療_2",
         "光治療_3",
-        "ピーリング_4"
+        "ピーリング_4",
+        "ダーマペン_5"
       ],
-      "article_count": 4
+      "article_count": 5
     },
     "botox-injection": {
       "completed_roles": [
