@@ -350,9 +350,18 @@
       "generated_at": "2026-03-26T03:50:56.483943",
       "word_count": 5106,
       "quality_score": 53
+    },
+    {
+      "title": "1. ヒアルロン酸注射の基礎知識｜初心者が知るべきポイントと選び方",
+      "category": "hyaluronic-acid",
+      "role": "基礎知識（エース記事）",
+      "priority": 1,
+      "generated_at": "2026-03-28T03:39:01.595364",
+      "word_count": 4566,
+      "quality_score": 54
     }
   ],
-  "current_category": "hyaluronic-acid",
+  "current_category": "diet-slimming",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -399,9 +408,10 @@
         "基礎知識（エース記事）_1",
         "部位別（涙袋）_2",
         "部位別（鼻）_3",
-        "失敗例・リスク_4"
+        "失敗例・リスク_4",
+        "基礎知識（エース記事）_1"
       ],
-      "article_count": 4
+      "article_count": 5
     },
     "diet-slimming": {
       "completed_roles": [
