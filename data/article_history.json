@@ -368,9 +368,18 @@
       "generated_at": "2026-03-31T03:53:13.930668",
       "word_count": 5383,
       "quality_score": 53
+    },
+    {
+      "title": "1. リフトアップ・たるみ治療の基礎知識｜初心者から決裁者まで分かる比較ガイド  ",
+      "category": "face-lift",
+      "role": "基礎知識（エース記事）",
+      "priority": 1,
+      "generated_at": "2026-04-02T03:46:02.355826",
+      "word_count": 4660,
+      "quality_score": 53
     }
   ],
-  "current_category": "face-lift",
+  "current_category": "dark-circles-treatment",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -435,9 +444,10 @@
       "completed_roles": [
         "基礎知識（エース記事）_1",
         "糸リフト_2",
-        "ハイフ・ウルセラ_3"
+        "ハイフ・ウルセラ_3",
+        "基礎知識（エース記事）_1"
       ],
-      "article_count": 3
+      "article_count": 4
     },
     "dark-circles-treatment": {
       "completed_roles": [
