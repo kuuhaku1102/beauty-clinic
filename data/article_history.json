@@ -386,9 +386,18 @@
       "generated_at": "2026-04-04T03:35:37.954137",
       "word_count": 5272,
       "quality_score": 54
+    },
+    {
+      "title": "1. ワキガ・多汗症治療の基礎知識｜初心者から決裁者まで失敗しない選び方ガイド  ",
+      "category": "hyperhidrosis-treatment",
+      "role": "基礎知識（エース記事）",
+      "priority": 1,
+      "generated_at": "2026-04-07T03:51:16.717064",
+      "word_count": 3429,
+      "quality_score": 54
     }
   ],
-  "current_category": "hyperhidrosis-treatment",
+  "current_category": "teeth-whitening",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -471,9 +480,10 @@
       "completed_roles": [
         "基礎知識（エース記事）_1",
         "ミラドライ_2",
-        "ビューホット_3"
+        "ビューホット_3",
+        "基礎知識（エース記事）_1"
       ],
-      "article_count": 3
+      "article_count": 4
     },
     "teeth-whitening": {
       "completed_roles": [
