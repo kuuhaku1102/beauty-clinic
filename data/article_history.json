@@ -395,9 +395,18 @@
       "generated_at": "2026-04-07T03:51:16.717064",
       "word_count": 3429,
       "quality_score": 54
+    },
+    {
+      "title": "1. ホワイトニング基礎知識｜初心者でもわかる種類・効果・注意点まとめ  ",
+      "category": "teeth-whitening",
+      "role": "基礎知識（エース記事）",
+      "priority": 1,
+      "generated_at": "2026-04-09T03:49:57.331356",
+      "word_count": 5584,
+      "quality_score": 52
     }
   ],
-  "current_category": "teeth-whitening",
+  "current_category": "medical-hair-removal",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -489,9 +498,10 @@
       "completed_roles": [
         "基礎知識（エース記事）_1",
         "オフィスホワイトニング_2",
+        "基礎知識（エース記事）_1",
         "基礎知識（エース記事）_1"
       ],
-      "article_count": 3
+      "article_count": 4
     }
   }
 }
