@@ -404,9 +404,18 @@
       "generated_at": "2026-04-09T03:49:57.331356",
       "word_count": 5584,
       "quality_score": 52
+    },
+    {
+      "title": "1. 医療脱毛の痛み対策完全ガイド｜失敗しないクリニック選びと対策法  ",
+      "category": "medical-hair-removal",
+      "role": "痛み対策",
+      "priority": 6,
+      "generated_at": "2026-04-11T03:39:27.159890",
+      "word_count": 4492,
+      "quality_score": 54
     }
   ],
-  "current_category": "medical-hair-removal",
+  "current_category": "double-eyelid-surgery",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -414,9 +423,10 @@
         "クリニック選びの判断基準_2",
         "部位別解説（全身）_3",
         "部位別解説（VIO）_4",
-        "部位別解説（顔）_5"
+        "部位別解説（顔）_5",
+        "痛み対策_6"
       ],
-      "article_count": 5
+      "article_count": 6
     },
     "double-eyelid-surgery": {
       "completed_roles": [
