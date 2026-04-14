@@ -413,9 +413,18 @@
       "generated_at": "2026-04-11T03:39:27.159890",
       "word_count": 4492,
       "quality_score": 54
+    },
+    {
+      "title": "1. 二重整形の失敗例・リスクを知って失敗を避ける方法  ",
+      "category": "double-eyelid-surgery",
+      "role": "失敗例・リスク",
+      "priority": 6,
+      "generated_at": "2026-04-14T04:11:58.046605",
+      "word_count": 4713,
+      "quality_score": 52
     }
   ],
-  "current_category": "double-eyelid-surgery",
+  "current_category": "skin-treatment",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -434,9 +443,10 @@
         "埋没法詳細_2",
         "切開法詳細_3",
         "クリニック選び_4",
-        "ダウンタイム_5"
+        "ダウンタイム_5",
+        "失敗例・リスク_6"
       ],
-      "article_count": 5
+      "article_count": 6
     },
     "skin-treatment": {
       "completed_roles": [
