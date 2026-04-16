@@ -422,9 +422,18 @@
       "generated_at": "2026-04-14T04:11:58.046605",
       "word_count": 4713,
       "quality_score": 52
+    },
+    {
+      "title": "1. 美肌治療の基礎知識｜初心者から決裁者まで押さえたいポイントまとめ  ",
+      "category": "skin-treatment",
+      "role": "基礎知識（エース記事）",
+      "priority": 1,
+      "generated_at": "2026-04-16T04:17:16.010530",
+      "word_count": 5144,
+      "quality_score": 53
     }
   ],
-  "current_category": "skin-treatment",
+  "current_category": "botox-injection",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -454,9 +463,10 @@
         "レーザー治療_2",
         "光治療_3",
         "ピーリング_4",
-        "ダーマペン_5"
+        "ダーマペン_5",
+        "基礎知識（エース記事）_1"
       ],
-      "article_count": 5
+      "article_count": 6
     },
     "botox-injection": {
       "completed_roles": [
