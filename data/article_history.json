@@ -449,9 +449,18 @@
       "generated_at": "2026-04-21T04:14:52.623390",
       "word_count": 4677,
       "quality_score": 53
+    },
+    {
+      "title": "1. ダイエット・痩身の基礎知識｜初心者から決裁者まで失敗しない選び方と比較ポイント  ",
+      "category": "diet-slimming",
+      "role": "基礎知識（エース記事）",
+      "priority": 1,
+      "generated_at": "2026-04-23T04:15:28.302988",
+      "word_count": 4670,
+      "quality_score": 52
     }
   ],
-  "current_category": "diet-slimming",
+  "current_category": "face-lift",
   "category_progress": {
     "medical-hair-removal": {
       "completed_roles": [
@@ -513,9 +522,10 @@
         "基礎知識（エース記事）_1",
         "GLP-1ダイエット_2",
         "脂肪吸引_3",
-        "脂肪冷却_4"
+        "脂肪冷却_4",
+        "基礎知識（エース記事）_1"
       ],
-      "article_count": 4
+      "article_count": 5
     },
     "face-lift": {
       "completed_roles": [
